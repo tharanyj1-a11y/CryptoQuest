@@ -1,35 +1,457 @@
-{
-  "1":[
-    {"question":"What is cryptocurrency?","options":["Digital money","Paper money","Gold"],"answer":0},
-    {"question":"Bitcoin decentralized?","options":["Yes","No"],"answer":0},
-    {"question":"Runs on?","options":["Blockchain","Bank"],"answer":0},
-    {"question":"Physical?","options":["Yes","No"],"answer":1},
-    {"question":"Wallet stores?","options":["Coins","Emails"],"answer":0}
-  ],
+export const levels = [
+  {
+    id: 1,
+    title: "Crypto Basics",
+    reward: "Bitcoin",
+    questions: [
+      {
+        question: "What is cryptocurrency?",
+        options: ["Digital money", "Paper money", "Bank account"],
+        answer: "Digital money",
+        explanation: "Cryptocurrency exists digitally and is not physical."
+      },
+      {
+        question: "Is crypto decentralized?",
+        options: ["Yes", "No"],
+        answer: "Yes",
+        explanation: "Most cryptocurrencies operate without central authority."
+      },
+      {
+        question: "What powers crypto?",
+        options: ["Blockchain", "WiFi", "Cloud"],
+        answer: "Blockchain",
+        explanation: "Blockchain stores transaction records securely."
+      },
+      {
+        question: "Can crypto be touched?",
+        options: ["Yes", "No"],
+        answer: "No",
+        explanation: "Crypto only exists digitally."
+      },
+      {
+        question: "Is Bitcoin crypto?",
+        options: ["Yes", "No"],
+        answer: "Yes",
+        explanation: "Bitcoin is the first cryptocurrency."
+      }
+    ]
+  },
 
-  "2":[
-    {"question":"Crypto fast?","options":["Yes","No"],"answer":0},
-    {"question":"Global?","options":["Yes","No"],"answer":0},
-    {"question":"Cheap fees?","options":["Yes","No"],"answer":0},
-    {"question":"Secure?","options":["Yes","No"],"answer":0},
-    {"question":"Transparent?","options":["Yes","No"],"answer":0}
-  ],
+  {
+    id: 2,
+    title: "Safety & Scams",
+    reward: "Ethereum",
+    questions: [
+      {
+        question: "Should you share private keys?",
+        options: ["Yes", "No"],
+        answer: "No",
+        explanation: "Private keys give full access to your funds."
+      },
+      {
+        question: "Common crypto scam?",
+        options: ["Fake giveaways", "ATM", "Bank deposit"],
+        answer: "Fake giveaways",
+        explanation: "Scammers trick users with fake rewards."
+      },
+      {
+        question: "Crypto transactions reversible?",
+        options: ["Yes", "No"],
+        answer: "No",
+        explanation: "Transactions are permanent."
+      },
+      {
+        question: "Safe storage?",
+        options: ["Wallet", "Email", "Notes"],
+        answer: "Wallet",
+        explanation: "Wallets securely store crypto."
+      },
+      {
+        question: "Trust unknown links?",
+        options: ["Yes", "No"],
+        answer: "No",
+        explanation: "Links may lead to phishing scams."
+      }
+    ]
+  },
 
-  "3":[
-    {"question":"Volatile?","options":["Yes","No"],"answer":0},
-    {"question":"Scams exist?","options":["Yes","No"],"answer":0},
-    {"question":"Lose key?","options":["Lose money","Nothing"],"answer":0},
-    {"question":"Stable?","options":["Yes","No"],"answer":1},
-    {"question":"Risk free?","options":["Yes","No"],"answer":1}
-  ],
+  {
+    id: 3,
+    title: "Trading Basics",
+    reward: "Litecoin",
+    questions: [
+      {
+        question: "What is trading?",
+        options: ["Buying/selling", "Mining", "Saving"],
+        answer: "Buying/selling",
+        explanation: "Trading means buying and selling assets."
+      },
+      {
+        question: "Buy low, sell high?",
+        options: ["Yes", "No"],
+        answer: "Yes",
+        explanation: "Profit comes from price differences."
+      },
+      {
+        question: "Market volatility?",
+        options: ["Price changes", "Stable", "No change"],
+        answer: "Price changes",
+        explanation: "Crypto prices change frequently."
+      },
+      {
+        question: "Exchange is?",
+        options: ["Trading platform", "Wallet", "Bank"],
+        answer: "Trading platform",
+        explanation: "Exchanges allow crypto trading."
+      },
+      {
+        question: "Risk in trading?",
+        options: ["High", "None"],
+        answer: "High",
+        explanation: "Crypto is highly volatile."
+      }
+    ]
+  },
 
-  "4":[{"question":"Scam example?","options":["Fake giveaway","Real bank"],"answer":0},{"question":"Phishing?","options":["Yes","No"],"answer":0},{"question":"Safe link?","options":["Check URL","Click fast"],"answer":0},{"question":"Unknown DM?","options":["Ignore","Trust"],"answer":0},{"question":"Free crypto?","options":["Scam","Real"],"answer":0}],
-  "5":[{"question":"Use 2FA?","options":["Yes","No"],"answer":0},{"question":"Strong password?","options":["Yes","No"],"answer":0},{"question":"Share keys?","options":["No","Yes"],"answer":0},{"question":"Secure wallet?","options":["Yes","No"],"answer":0},{"question":"Backup?","options":["Yes","No"],"answer":0}],
-  "6":[{"question":"Trade wisely?","options":["Yes","No"],"answer":0},{"question":"Research?","options":["Yes","No"],"answer":0},{"question":"FOMO?","options":["Avoid","Follow"],"answer":0},{"question":"Risk manage?","options":["Yes","No"],"answer":0},{"question":"Diversify?","options":["Yes","No"],"answer":0}],
-  "7":[{"question":"NFT?","options":["Digital asset","Cash"],"answer":0},{"question":"Own art?","options":["Yes","No"],"answer":0},{"question":"Unique?","options":["Yes","No"],"answer":0},{"question":"Blockchain?","options":["Yes","No"],"answer":0},{"question":"Copy?","options":["No","Yes"],"answer":0}],
-  "8":[{"question":"DeFi?","options":["Decentralized","Centralized"],"answer":0},{"question":"Smart contract?","options":["Code","Paper"],"answer":0},{"question":"Banks needed?","options":["No","Yes"],"answer":0},{"question":"Lending?","options":["Yes","No"],"answer":0},{"question":"Risk?","options":["Yes","No"],"answer":0}],
-  "9":[{"question":"Privacy coin?","options":["Yes","No"],"answer":0},{"question":"Traceable?","options":["Sometimes","Never"],"answer":0},{"question":"Anonymous?","options":["Yes","No"],"answer":0},{"question":"Secure?","options":["Yes","No"],"answer":0},{"question":"Hidden tx?","options":["Yes","No"],"answer":0}],
-  "10":[{"question":"Eco impact?","options":["Yes","No"],"answer":0},{"question":"Energy use?","options":["High","Low"],"answer":0},{"question":"Green crypto?","options":["Yes","No"],"answer":0},{"question":"Mining cost?","options":["High","Low"],"answer":0},{"question":"Sustainable?","options":["Improving","No"],"answer":0}],
-  "11":[{"question":"Wallet type?","options":["Hot/Cold","Paper"],"answer":0},{"question":"Private key?","options":["Secret","Public"],"answer":0},{"question":"Lose key?","options":["Lose funds","Nothing"],"answer":0},{"question":"Backup?","options":["Yes","No"],"answer":0},{"question":"Safe storage?","options":["Yes","No"],"answer":0}],
-  "12":[{"question":"Legal?","options":["Varies","Same"],"answer":0},{"question":"Tax?","options":["Yes","No"],"answer":0},{"question":"Regulated?","options":["Somewhat","No"],"answer":0},{"question":"Government?","options":["Involved","Not"],"answer":0},{"question":"Compliance?","options":["Yes","No"],"answer":0}]
-}
+  {
+    id: 4,
+    title: "Blockchain",
+    reward: "Cardano",
+    questions: [
+      {
+        question: "Blockchain is?",
+        options: ["Ledger", "Game", "Wallet"],
+        answer: "Ledger",
+        explanation: "It records transactions."
+      },
+      {
+        question: "Blocks contain?",
+        options: ["Transactions", "Coins", "Passwords"],
+        answer: "Transactions",
+        explanation: "Blocks store transaction data."
+      },
+      {
+        question: "Immutable means?",
+        options: ["Cannot change", "Editable"],
+        answer: "Cannot change",
+        explanation: "Blockchain data cannot be altered."
+      },
+      {
+        question: "Decentralized?",
+        options: ["No central control", "Bank controlled"],
+        answer: "No central control",
+        explanation: "No single authority controls blockchain."
+      },
+      {
+        question: "Public blockchain?",
+        options: ["Open to all", "Private"],
+        answer: "Open to all",
+        explanation: "Anyone can access it."
+      }
+    ]
+  },
+
+  {
+    id: 5,
+    title: "Wallets",
+    reward: "Solana",
+    questions: [
+      {
+        question: "Wallet stores?",
+        options: ["Keys", "Coins physically"],
+        answer: "Keys",
+        explanation: "Wallets store private keys."
+      },
+      {
+        question: "Hot wallet?",
+        options: ["Online", "Offline"],
+        answer: "Online",
+        explanation: "Connected to internet."
+      },
+      {
+        question: "Cold wallet?",
+        options: ["Offline", "Online"],
+        answer: "Offline",
+        explanation: "Safer, not internet connected."
+      },
+      {
+        question: "Lose keys?",
+        options: ["Lose crypto", "Nothing happens"],
+        answer: "Lose crypto",
+        explanation: "No recovery without keys."
+      },
+      {
+        question: "Wallet security?",
+        options: ["Important", "Not needed"],
+        answer: "Important",
+        explanation: "Security protects funds."
+      }
+    ]
+  },
+
+  {
+    id: 6,
+    title: "Mining",
+    reward: "Dogecoin",
+    questions: [
+      {
+        question: "Mining does?",
+        options: ["Validates transactions", "Stores files"],
+        answer: "Validates transactions",
+        explanation: "Mining confirms transactions."
+      },
+      {
+        question: "Reward?",
+        options: ["Crypto", "Cash"],
+        answer: "Crypto",
+        explanation: "Miners earn crypto."
+      },
+      {
+        question: "Requires?",
+        options: ["Computing power", "Paper"],
+        answer: "Computing power",
+        explanation: "Mining uses computers."
+      },
+      {
+        question: "Energy use?",
+        options: ["High", "Low"],
+        answer: "High",
+        explanation: "Mining consumes energy."
+      },
+      {
+        question: "Proof of Work?",
+        options: ["Mining system", "Wallet"],
+        answer: "Mining system",
+        explanation: "Consensus mechanism."
+      }
+    ]
+  },
+
+  {
+    id: 7,
+    title: "Smart Contracts",
+    reward: "Polkadot",
+    questions: [
+      {
+        question: "Smart contract?",
+        options: ["Auto agreement", "Paper"],
+        answer: "Auto agreement",
+        explanation: "Executes automatically."
+      },
+      {
+        question: "Runs on?",
+        options: ["Blockchain", "Server"],
+        answer: "Blockchain",
+        explanation: "Stored on blockchain."
+      },
+      {
+        question: "Needs middleman?",
+        options: ["No", "Yes"],
+        answer: "No",
+        explanation: "Self-executing."
+      },
+      {
+        question: "Popular platform?",
+        options: ["Ethereum", "Google"],
+        answer: "Ethereum",
+        explanation: "Ethereum supports smart contracts."
+      },
+      {
+        question: "Purpose?",
+        options: ["Automation", "Storage"],
+        answer: "Automation",
+        explanation: "Executes tasks automatically."
+      }
+    ]
+  },
+
+  {
+    id: 8,
+    title: "DeFi",
+    reward: "Avalanche",
+    questions: [
+      {
+        question: "DeFi stands for?",
+        options: ["Decentralized Finance", "Digital Finance"],
+        answer: "Decentralized Finance",
+        explanation: "Finance without banks."
+      },
+      {
+        question: "DeFi uses?",
+        options: ["Smart contracts", "Paper"],
+        answer: "Smart contracts",
+        explanation: "Runs on blockchain."
+      },
+      {
+        question: "Banks needed?",
+        options: ["No", "Yes"],
+        answer: "No",
+        explanation: "No intermediaries."
+      },
+      {
+        question: "Lending possible?",
+        options: ["Yes", "No"],
+        answer: "Yes",
+        explanation: "DeFi allows lending."
+      },
+      {
+        question: "Risk?",
+        options: ["High", "None"],
+        answer: "High",
+        explanation: "Smart contract risks exist."
+      }
+    ]
+  },
+
+  {
+    id: 9,
+    title: "NFTs",
+    reward: "Polygon",
+    questions: [
+      {
+        question: "NFT stands for?",
+        options: ["Non-Fungible Token", "New File Type"],
+        answer: "Non-Fungible Token",
+        explanation: "Unique digital asset."
+      },
+      {
+        question: "NFTs are?",
+        options: ["Unique", "Identical"],
+        answer: "Unique",
+        explanation: "Each NFT is different."
+      },
+      {
+        question: "Used for?",
+        options: ["Art", "Banking"],
+        answer: "Art",
+        explanation: "Often used for digital art."
+      },
+      {
+        question: "Blockchain?",
+        options: ["Yes", "No"],
+        answer: "Yes",
+        explanation: "NFTs exist on blockchain."
+      },
+      {
+        question: "Copy NFT?",
+        options: ["Not original", "Same"],
+        answer: "Not original",
+        explanation: "Original ownership matters."
+      }
+    ]
+  },
+
+  {
+    id: 10,
+    title: "Crypto Security",
+    reward: "Chainlink",
+    questions: [
+      {
+        question: "2FA?",
+        options: ["Extra security", "Not needed"],
+        answer: "Extra security",
+        explanation: "Adds protection."
+      },
+      {
+        question: "Phishing?",
+        options: ["Scam", "Safe"],
+        answer: "Scam",
+        explanation: "Steals information."
+      },
+      {
+        question: "Strong password?",
+        options: ["Yes", "No"],
+        answer: "Yes",
+        explanation: "Protects accounts."
+      },
+      {
+        question: "Public WiFi safe?",
+        options: ["No", "Yes"],
+        answer: "No",
+        explanation: "Can be insecure."
+      },
+      {
+        question: "Backup keys?",
+        options: ["Yes", "No"],
+        answer: "Yes",
+        explanation: "Prevents loss."
+      }
+    ]
+  },
+
+  {
+    id: 11,
+    title: "Market Concepts",
+    reward: "Stellar",
+    questions: [
+      {
+        question: "Bull market?",
+        options: ["Prices rising", "Falling"],
+        answer: "Prices rising",
+        explanation: "Upward trend."
+      },
+      {
+        question: "Bear market?",
+        options: ["Falling", "Rising"],
+        answer: "Falling",
+        explanation: "Downward trend."
+      },
+      {
+        question: "Volatility?",
+        options: ["Price swings", "Stable"],
+        answer: "Price swings",
+        explanation: "Rapid changes."
+      },
+      {
+        question: "Liquidity?",
+        options: ["Ease of trading", "Hard"],
+        answer: "Ease of trading",
+        explanation: "Ease of buying/selling."
+      },
+      {
+        question: "Market cap?",
+        options: ["Total value", "Price only"],
+        answer: "Total value",
+        explanation: "Total value of crypto."
+      }
+    ]
+  },
+
+  {
+    id: 12,
+    title: "Advanced Crypto",
+    reward: "Ripple",
+    questions: [
+      {
+        question: "Altcoin?",
+        options: ["Non-Bitcoin crypto", "Bitcoin"],
+        answer: "Non-Bitcoin crypto",
+        explanation: "All other cryptocurrencies."
+      },
+      {
+        question: "Stablecoin?",
+        options: ["Stable value", "Volatile"],
+        answer: "Stable value",
+        explanation: "Pegged to assets."
+      },
+      {
+        question: "Gas fees?",
+        options: ["Transaction fees", "Free"],
+        answer: "Transaction fees",
+        explanation: "Fees for transactions."
+      },
+      {
+        question: "Token vs coin?",
+        options: ["Different", "Same"],
+        answer: "Different",
+        explanation: "Tokens run on platforms."
+      },
+      {
+        question: "Adoption growing?",
+        options: ["Yes", "No"],
+        answer: "Yes",
+        explanation: "Crypto usage is increasing."
+      }
+    ]
+  }
+];
