@@ -1,457 +1,397 @@
-export const levels = [
-  {
-    id: 1,
-    title: "Crypto Basics",
-    reward: "Bitcoin",
-    questions: [
-      {
-        question: "What is cryptocurrency?",
-        options: ["Digital money", "Paper money", "Bank account"],
-        answer: "Digital money",
-        explanation: "Cryptocurrency exists digitally and is not physical."
-      },
-      {
-        question: "Is crypto decentralized?",
-        options: ["Yes", "No"],
-        answer: "Yes",
-        explanation: "Most cryptocurrencies operate without central authority."
-      },
-      {
-        question: "What powers crypto?",
-        options: ["Blockchain", "WiFi", "Cloud"],
-        answer: "Blockchain",
-        explanation: "Blockchain stores transaction records securely."
-      },
-      {
-        question: "Can crypto be touched?",
-        options: ["Yes", "No"],
-        answer: "No",
-        explanation: "Crypto only exists digitally."
-      },
-      {
-        question: "Is Bitcoin crypto?",
-        options: ["Yes", "No"],
-        answer: "Yes",
-        explanation: "Bitcoin is the first cryptocurrency."
-      }
-    ]
-  },
+{
+  "1": [
+    {
+      "question": "What is cryptocurrency?",
+      "options": ["Digital money", "Paper money", "Gold"],
+      "answer": 0,
+      "explanation": "Cryptocurrency is digital money that exists online and is secured by cryptography."
+    },
+    {
+      "question": "Is Bitcoin centralized?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Bitcoin is decentralized, meaning no single authority controls it."
+    },
+    {
+      "question": "Crypto runs on?",
+      "options": ["Banks", "Blockchain"],
+      "answer": 1,
+      "explanation": "Cryptocurrency operates on blockchain technology, not banks."
+    },
+    {
+      "question": "Is crypto physical?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Cryptocurrency exists only digitally, not physically."
+    },
+    {
+      "question": "What does a wallet store?",
+      "options": ["Coins", "Private keys"],
+      "answer": 1,
+      "explanation": "Wallets store private keys, which give access to your crypto."
+    }
+  ],
 
-  {
-    id: 2,
-    title: "Safety & Scams",
-    reward: "Ethereum",
-    questions: [
-      {
-        question: "Should you share private keys?",
-        options: ["Yes", "No"],
-        answer: "No",
-        explanation: "Private keys give full access to your funds."
-      },
-      {
-        question: "Common crypto scam?",
-        options: ["Fake giveaways", "ATM", "Bank deposit"],
-        answer: "Fake giveaways",
-        explanation: "Scammers trick users with fake rewards."
-      },
-      {
-        question: "Crypto transactions reversible?",
-        options: ["Yes", "No"],
-        answer: "No",
-        explanation: "Transactions are permanent."
-      },
-      {
-        question: "Safe storage?",
-        options: ["Wallet", "Email", "Notes"],
-        answer: "Wallet",
-        explanation: "Wallets securely store crypto."
-      },
-      {
-        question: "Trust unknown links?",
-        options: ["Yes", "No"],
-        answer: "No",
-        explanation: "Links may lead to phishing scams."
-      }
-    ]
-  },
+  "2": [
+    {
+      "question": "Is crypto fast to send?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Crypto transactions are often faster than traditional banking systems."
+    },
+    {
+      "question": "Can crypto be used globally?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Crypto can be sent anywhere in the world without borders."
+    },
+    {
+      "question": "Are crypto fees usually lower?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Crypto often has lower fees than traditional financial systems."
+    },
+    {
+      "question": "Is blockchain transparent?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Transactions are recorded publicly on the blockchain."
+    },
+    {
+      "question": "Can you access crypto anytime?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Crypto markets run 24/7 unlike banks."
+    }
+  ],
 
-  {
-    id: 3,
-    title: "Trading Basics",
-    reward: "Litecoin",
-    questions: [
-      {
-        question: "What is trading?",
-        options: ["Buying/selling", "Mining", "Saving"],
-        answer: "Buying/selling",
-        explanation: "Trading means buying and selling assets."
-      },
-      {
-        question: "Buy low, sell high?",
-        options: ["Yes", "No"],
-        answer: "Yes",
-        explanation: "Profit comes from price differences."
-      },
-      {
-        question: "Market volatility?",
-        options: ["Price changes", "Stable", "No change"],
-        answer: "Price changes",
-        explanation: "Crypto prices change frequently."
-      },
-      {
-        question: "Exchange is?",
-        options: ["Trading platform", "Wallet", "Bank"],
-        answer: "Trading platform",
-        explanation: "Exchanges allow crypto trading."
-      },
-      {
-        question: "Risk in trading?",
-        options: ["High", "None"],
-        answer: "High",
-        explanation: "Crypto is highly volatile."
-      }
-    ]
-  },
+  "3": [
+    {
+      "question": "Is crypto price stable?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Crypto is highly volatile and prices change frequently."
+    },
+    {
+      "question": "Do scams exist in crypto?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "There are many scams in crypto, so users must be careful."
+    },
+    {
+      "question": "What happens if you lose your private key?",
+      "options": ["Lose funds", "Nothing"],
+      "answer": 0,
+      "explanation": "Without your private key, you cannot access your crypto."
+    },
+    {
+      "question": "Is crypto always regulated?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Regulations vary by country and are not always strict."
+    },
+    {
+      "question": "Is crypto risk-free?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Crypto involves risks such as volatility and scams."
+    }
+  ],
 
-  {
-    id: 4,
-    title: "Blockchain",
-    reward: "Cardano",
-    questions: [
-      {
-        question: "Blockchain is?",
-        options: ["Ledger", "Game", "Wallet"],
-        answer: "Ledger",
-        explanation: "It records transactions."
-      },
-      {
-        question: "Blocks contain?",
-        options: ["Transactions", "Coins", "Passwords"],
-        answer: "Transactions",
-        explanation: "Blocks store transaction data."
-      },
-      {
-        question: "Immutable means?",
-        options: ["Cannot change", "Editable"],
-        answer: "Cannot change",
-        explanation: "Blockchain data cannot be altered."
-      },
-      {
-        question: "Decentralized?",
-        options: ["No central control", "Bank controlled"],
-        answer: "No central control",
-        explanation: "No single authority controls blockchain."
-      },
-      {
-        question: "Public blockchain?",
-        options: ["Open to all", "Private"],
-        answer: "Open to all",
-        explanation: "Anyone can access it."
-      }
-    ]
-  },
+  "4": [
+    {
+      "question": "What is a common scam?",
+      "options": ["Fake giveaway", "Real bank offer"],
+      "answer": 0,
+      "explanation": "Fake giveaways are a common scam used to trick users."
+    },
+    {
+      "question": "What is phishing?",
+      "options": ["Stealing info", "Mining crypto"],
+      "answer": 0,
+      "explanation": "Phishing tricks users into giving personal information."
+    },
+    {
+      "question": "Should you trust unknown links?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Unknown links can lead to scams or malware."
+    },
+    {
+      "question": "Should you respond to random crypto messages?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Random messages are often scams."
+    },
+    {
+      "question": "Is free crypto always real?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Most 'free crypto' offers are scams."
+    }
+  ],
 
-  {
-    id: 5,
-    title: "Wallets",
-    reward: "Solana",
-    questions: [
-      {
-        question: "Wallet stores?",
-        options: ["Keys", "Coins physically"],
-        answer: "Keys",
-        explanation: "Wallets store private keys."
-      },
-      {
-        question: "Hot wallet?",
-        options: ["Online", "Offline"],
-        answer: "Online",
-        explanation: "Connected to internet."
-      },
-      {
-        question: "Cold wallet?",
-        options: ["Offline", "Online"],
-        answer: "Offline",
-        explanation: "Safer, not internet connected."
-      },
-      {
-        question: "Lose keys?",
-        options: ["Lose crypto", "Nothing happens"],
-        answer: "Lose crypto",
-        explanation: "No recovery without keys."
-      },
-      {
-        question: "Wallet security?",
-        options: ["Important", "Not needed"],
-        answer: "Important",
-        explanation: "Security protects funds."
-      }
-    ]
-  },
+  "5": [
+    {
+      "question": "Should you use 2FA?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "2FA adds extra security to your account."
+    },
+    {
+      "question": "Should you share your private key?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Never share your private key with anyone."
+    },
+    {
+      "question": "Strong passwords are?",
+      "options": ["Important", "Not needed"],
+      "answer": 0,
+      "explanation": "Strong passwords protect your account."
+    },
+    {
+      "question": "Should you backup your wallet?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Backups prevent loss of access."
+    },
+    {
+      "question": "Is security important?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Security is critical in crypto."
+    }
+  ],
 
-  {
-    id: 6,
-    title: "Mining",
-    reward: "Dogecoin",
-    questions: [
-      {
-        question: "Mining does?",
-        options: ["Validates transactions", "Stores files"],
-        answer: "Validates transactions",
-        explanation: "Mining confirms transactions."
-      },
-      {
-        question: "Reward?",
-        options: ["Crypto", "Cash"],
-        answer: "Crypto",
-        explanation: "Miners earn crypto."
-      },
-      {
-        question: "Requires?",
-        options: ["Computing power", "Paper"],
-        answer: "Computing power",
-        explanation: "Mining uses computers."
-      },
-      {
-        question: "Energy use?",
-        options: ["High", "Low"],
-        answer: "High",
-        explanation: "Mining consumes energy."
-      },
-      {
-        question: "Proof of Work?",
-        options: ["Mining system", "Wallet"],
-        answer: "Mining system",
-        explanation: "Consensus mechanism."
-      }
-    ]
-  },
+  "6": [
+    {
+      "question": "Should you research before investing?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Research helps avoid bad investments."
+    },
+    {
+      "question": "Is FOMO good?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "FOMO can lead to poor decisions."
+    },
+    {
+      "question": "Should you diversify?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Diversification reduces risk."
+    },
+    {
+      "question": "Is risk management important?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Managing risk protects your investments."
+    },
+    {
+      "question": "Should you invest everything at once?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Investing all at once is risky."
+    }
+  ],
 
-  {
-    id: 7,
-    title: "Smart Contracts",
-    reward: "Polkadot",
-    questions: [
-      {
-        question: "Smart contract?",
-        options: ["Auto agreement", "Paper"],
-        answer: "Auto agreement",
-        explanation: "Executes automatically."
-      },
-      {
-        question: "Runs on?",
-        options: ["Blockchain", "Server"],
-        answer: "Blockchain",
-        explanation: "Stored on blockchain."
-      },
-      {
-        question: "Needs middleman?",
-        options: ["No", "Yes"],
-        answer: "No",
-        explanation: "Self-executing."
-      },
-      {
-        question: "Popular platform?",
-        options: ["Ethereum", "Google"],
-        answer: "Ethereum",
-        explanation: "Ethereum supports smart contracts."
-      },
-      {
-        question: "Purpose?",
-        options: ["Automation", "Storage"],
-        answer: "Automation",
-        explanation: "Executes tasks automatically."
-      }
-    ]
-  },
+  "7": [
+    {
+      "question": "What is an NFT?",
+      "options": ["Digital asset", "Cash"],
+      "answer": 0,
+      "explanation": "NFTs are unique digital assets on blockchain."
+    },
+    {
+      "question": "Are NFTs unique?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Each NFT is unique."
+    },
+    {
+      "question": "Can NFTs represent art?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "NFTs are commonly used for digital art."
+    },
+    {
+      "question": "Are NFTs physical?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "NFTs are digital."
+    },
+    {
+      "question": "Can NFTs be copied?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "The image can be copied, but ownership cannot."
+    }
+  ],
 
-  {
-    id: 8,
-    title: "DeFi",
-    reward: "Avalanche",
-    questions: [
-      {
-        question: "DeFi stands for?",
-        options: ["Decentralized Finance", "Digital Finance"],
-        answer: "Decentralized Finance",
-        explanation: "Finance without banks."
-      },
-      {
-        question: "DeFi uses?",
-        options: ["Smart contracts", "Paper"],
-        answer: "Smart contracts",
-        explanation: "Runs on blockchain."
-      },
-      {
-        question: "Banks needed?",
-        options: ["No", "Yes"],
-        answer: "No",
-        explanation: "No intermediaries."
-      },
-      {
-        question: "Lending possible?",
-        options: ["Yes", "No"],
-        answer: "Yes",
-        explanation: "DeFi allows lending."
-      },
-      {
-        question: "Risk?",
-        options: ["High", "None"],
-        answer: "High",
-        explanation: "Smart contract risks exist."
-      }
-    ]
-  },
+  "8": [
+    {
+      "question": "What is DeFi?",
+      "options": ["Decentralized finance", "Central bank"],
+      "answer": 0,
+      "explanation": "DeFi removes middlemen like banks."
+    },
+    {
+      "question": "What is a smart contract?",
+      "options": ["Code", "Paper"],
+      "answer": 0,
+      "explanation": "Smart contracts are self-executing code."
+    },
+    {
+      "question": "Does DeFi need banks?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "DeFi operates without banks."
+    },
+    {
+      "question": "Can you lend in DeFi?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "DeFi platforms allow lending."
+    },
+    {
+      "question": "Is DeFi risky?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "DeFi carries risks like hacks."
+    }
+  ],
 
-  {
-    id: 9,
-    title: "NFTs",
-    reward: "Polygon",
-    questions: [
-      {
-        question: "NFT stands for?",
-        options: ["Non-Fungible Token", "New File Type"],
-        answer: "Non-Fungible Token",
-        explanation: "Unique digital asset."
-      },
-      {
-        question: "NFTs are?",
-        options: ["Unique", "Identical"],
-        answer: "Unique",
-        explanation: "Each NFT is different."
-      },
-      {
-        question: "Used for?",
-        options: ["Art", "Banking"],
-        answer: "Art",
-        explanation: "Often used for digital art."
-      },
-      {
-        question: "Blockchain?",
-        options: ["Yes", "No"],
-        answer: "Yes",
-        explanation: "NFTs exist on blockchain."
-      },
-      {
-        question: "Copy NFT?",
-        options: ["Not original", "Same"],
-        answer: "Not original",
-        explanation: "Original ownership matters."
-      }
-    ]
-  },
+  "9": [
+    {
+      "question": "Are privacy coins anonymous?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Privacy coins hide transaction details."
+    },
+    {
+      "question": "Are all transactions public?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Some coins focus on privacy."
+    },
+    {
+      "question": "Is tracking always possible?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Privacy coins prevent tracking."
+    },
+    {
+      "question": "Are privacy coins legal everywhere?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Some countries restrict them."
+    },
+    {
+      "question": "Are they secure?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "They are designed for security."
+    }
+  ],
 
-  {
-    id: 10,
-    title: "Crypto Security",
-    reward: "Chainlink",
-    questions: [
-      {
-        question: "2FA?",
-        options: ["Extra security", "Not needed"],
-        answer: "Extra security",
-        explanation: "Adds protection."
-      },
-      {
-        question: "Phishing?",
-        options: ["Scam", "Safe"],
-        answer: "Scam",
-        explanation: "Steals information."
-      },
-      {
-        question: "Strong password?",
-        options: ["Yes", "No"],
-        answer: "Yes",
-        explanation: "Protects accounts."
-      },
-      {
-        question: "Public WiFi safe?",
-        options: ["No", "Yes"],
-        answer: "No",
-        explanation: "Can be insecure."
-      },
-      {
-        question: "Backup keys?",
-        options: ["Yes", "No"],
-        answer: "Yes",
-        explanation: "Prevents loss."
-      }
-    ]
-  },
+  "10": [
+    {
+      "question": "Does crypto use energy?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Mining uses significant energy."
+    },
+    {
+      "question": "Is mining costly?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Mining requires expensive hardware and electricity."
+    },
+    {
+      "question": "Are greener options emerging?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Newer systems are more energy-efficient."
+    },
+    {
+      "question": "Is all crypto bad for environment?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Some crypto is more eco-friendly."
+    },
+    {
+      "question": "Is sustainability improving?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Developers are improving sustainability."
+    }
+  ],
 
-  {
-    id: 11,
-    title: "Market Concepts",
-    reward: "Stellar",
-    questions: [
-      {
-        question: "Bull market?",
-        options: ["Prices rising", "Falling"],
-        answer: "Prices rising",
-        explanation: "Upward trend."
-      },
-      {
-        question: "Bear market?",
-        options: ["Falling", "Rising"],
-        answer: "Falling",
-        explanation: "Downward trend."
-      },
-      {
-        question: "Volatility?",
-        options: ["Price swings", "Stable"],
-        answer: "Price swings",
-        explanation: "Rapid changes."
-      },
-      {
-        question: "Liquidity?",
-        options: ["Ease of trading", "Hard"],
-        answer: "Ease of trading",
-        explanation: "Ease of buying/selling."
-      },
-      {
-        question: "Market cap?",
-        options: ["Total value", "Price only"],
-        answer: "Total value",
-        explanation: "Total value of crypto."
-      }
-    ]
-  },
+  "11": [
+    {
+      "question": "What is a private key?",
+      "options": ["Secret key", "Public key"],
+      "answer": 0,
+      "explanation": "Private keys must be kept secret."
+    },
+    {
+      "question": "What happens if stolen?",
+      "options": ["Funds lost", "Nothing"],
+      "answer": 0,
+      "explanation": "Anyone with your key can access funds."
+    },
+    {
+      "question": "Should keys be shared?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Never share private keys."
+    },
+    {
+      "question": "Is backup important?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Backup prevents loss."
+    },
+    {
+      "question": "Is wallet security important?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Security protects your assets."
+    }
+  ],
 
-  {
-    id: 12,
-    title: "Advanced Crypto",
-    reward: "Ripple",
-    questions: [
-      {
-        question: "Altcoin?",
-        options: ["Non-Bitcoin crypto", "Bitcoin"],
-        answer: "Non-Bitcoin crypto",
-        explanation: "All other cryptocurrencies."
-      },
-      {
-        question: "Stablecoin?",
-        options: ["Stable value", "Volatile"],
-        answer: "Stable value",
-        explanation: "Pegged to assets."
-      },
-      {
-        question: "Gas fees?",
-        options: ["Transaction fees", "Free"],
-        answer: "Transaction fees",
-        explanation: "Fees for transactions."
-      },
-      {
-        question: "Token vs coin?",
-        options: ["Different", "Same"],
-        answer: "Different",
-        explanation: "Tokens run on platforms."
-      },
-      {
-        question: "Adoption growing?",
-        options: ["Yes", "No"],
-        answer: "Yes",
-        explanation: "Crypto usage is increasing."
-      }
-    ]
-  }
-];
+  "12": [
+    {
+      "question": "Is crypto legal everywhere?",
+      "options": ["Yes", "No"],
+      "answer": 1,
+      "explanation": "Laws vary by country."
+    },
+    {
+      "question": "Do you pay tax on crypto?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Many countries tax crypto gains."
+    },
+    {
+      "question": "Is crypto regulated?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Some regulation exists."
+    },
+    {
+      "question": "Do governments monitor crypto?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Governments track crypto activity."
+    },
+    {
+      "question": "Should you follow laws?",
+      "options": ["Yes", "No"],
+      "answer": 0,
+      "explanation": "Following laws avoids legal issues."
+    }
+  ]
+}
