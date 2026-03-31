@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard</title>
+  <title>CryptoQuest Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>Crypto Quest: Digital Citizen</h1>
-<div id="progress"></div>
+
+<!-- Progress -->
+<h2 id="progress">Progress: 0/12</h2>
+
+<!-- Levels container -->
 <div id="levels"></div>
 
+<!-- Logout button -->
+<button onclick="logout()">Logout</button>
+
 <script src="app.js"></script>
+
+<script>
+  // Simple logout
+  function logout() {
+    localStorage.removeItem("user");
+    window.location.href = "index.html";
+  }
+</script>
+
 </body>
 </html>
