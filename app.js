@@ -1,105 +1,41 @@
-import { useState } from "react";
-import { levels } from "./data/questions";
-import Quiz from "./components/Quiz";
-import "./styles.css";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
 
-export default function App() {
-  // ✅ Persist user (FIXES GitHub Pages issue)
-  const [user, setUser] = useState(() => {
-    return localStorage.getItem("user");
-  });
+<body>
 
-  const [currentLevel, setCurrentLevel] = useState(null);
-  const [progress, setProgress] = useState(1);
-  const [coins, setCoins] = useState([]);
+<div class="main">
+<h1>Login</h1>
 
-  // ✅ LOGIN SCREEN
-  if (!user) {
-    return (
-      <div className="login">
-        <h1>Crypto Quest</h1>
-        <button
-          onClick={() => {
-            localStorage.setItem("user", "Player");
-            setUser("Player");
-          }}
-        >
-          Login
-        </button>
-      </div>
-    );
-  }
+<div class="card">
 
-  // ✅ QUIZ SCREEN
-  if (currentLevel) {
-    return (
-      <Quiz
-        level={currentLevel}
-        onFinish={() => {
-          setCoins((prev) => [...prev, currentLevel.reward]);
-          setProgress((prev) => prev + 1);
-          setCurrentLevel(null);
-        }}
-      />
-    );
-  }
+<form id="login-form">
 
-  // ✅ MAIN DASHBOARD
-  return (
-    <div className="container">
-      <h1 className="title">Crypto Quest</h1>
+<label for="email">Email</label>
+<input type="email" id="email" required>
 
-      <div className="top-bar">
-        <p>👤 {user}</p>
-        <p>💰 Coins: {coins.length}</p>
-        <p>
-          📊 Progress: {progress}/{levels.length}
-        </p>
+<label for="password">Password</label>
+<input type="password" id="password" required>
 
-        {/* ✅ Logout button */}
-        <button
-          onClick={() => {
-            localStorage.removeItem("user");
-            setUser(null);
-          }}
-        >
-          Logout
-        </button>
-      </div>
+<button type="button" id="toggle-password">Show</button>
 
-      <div className="grid">
-        {levels.map((level) => {
-          const unlocked = level.id <= progress;
+<button type="submit">Login</button>
 
-          return (
-            <div
-              key={level.id}
-              className={`card ${!unlocked ? "locked" : ""}`}
-              onClick={(e) => {
-                e.preventDefault(); // ✅ prevents weird reloads
-                if (unlocked) {
-                  setCurrentLevel(level);
-                }
-              }}
-            >
-              <h3>{level.title}</h3>
-              <p>Reward: {level.reward}</p>
+</form>
 
-              <button
-                disabled={!unlocked}
-                onClick={(e) => {
-                  e.stopPropagation(); // ✅ prevents double triggering
-                  if (unlocked) {
-                    setCurrentLevel(level);
-                  }
-                }}
-              >
-                {unlocked ? "Start" : "Locked"}
-              </button>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
+<p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+
+<form action="dashboard.html">
+<button type="submit">Continue as Guest</button>
+</form>
+
+</div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
