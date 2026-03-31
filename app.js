@@ -4,7 +4,11 @@ import Quiz from "./components/Quiz";
 import "./styles.css";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  // ✅ Persist user (FIXES GitHub Pages issue)
+  const [user, setUser] = useState(() => {
+    return localStorage.getItem("user");
+  });
+
   const [currentLevel, setCurrentLevel] = useState(null);
   const [progress, setProgress] = useState(1);
   const [coins, setCoins] = useState([]);
@@ -16,7 +20,7 @@ export default function App() {
         <h1>Crypto Quest</h1>
         <button
           onClick={() => {
-            console.log("Login clicked");
+            localStorage.setItem("user", "Player");
             setUser("Player");
           }}
         >
@@ -51,6 +55,16 @@ export default function App() {
         <p>
           📊 Progress: {progress}/{levels.length}
         </p>
+
+        {/* ✅ Logout button */}
+        <button
+          onClick={() => {
+            localStorage.removeItem("user");
+            setUser(null);
+          }}
+        >
+          Logout
+        </button>
       </div>
 
       <div className="grid">
@@ -61,7 +75,8 @@ export default function App() {
             <div
               key={level.id}
               className={`card ${!unlocked ? "locked" : ""}`}
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault(); // ✅ prevents weird reloads
                 if (unlocked) {
                   setCurrentLevel(level);
                 }
@@ -70,7 +85,15 @@ export default function App() {
               <h3>{level.title}</h3>
               <p>Reward: {level.reward}</p>
 
-              <button disabled={!unlocked}>
+              <button
+                disabled={!unlocked}
+                onClick={(e) => {
+                  e.stopPropagation(); // ✅ prevents double triggering
+                  if (unlocked) {
+                    setCurrentLevel(level);
+                  }
+                }}
+              >
                 {unlocked ? "Start" : "Locked"}
               </button>
             </div>
