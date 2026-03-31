@@ -1,18 +1,26 @@
+// ==========================
 // LOGIN
+// ==========================
 function login() {
   const username = document.getElementById("username").value.trim();
   if (!username) return alert("Enter username");
 
   localStorage.setItem("user", username);
 
+  // Create user if new
   if (!localStorage.getItem(username)) {
     localStorage.setItem(username, JSON.stringify({ level: 1 }));
   }
 
+  // ✅ ALWAYS set a starting level
+  localStorage.setItem("level", "1");
+
   window.location.href = "dashboard.html";
 }
 
+// ==========================
 // DASHBOARD
+// ==========================
 if (document.getElementById("levels")) {
   const username = localStorage.getItem("user");
 
@@ -26,6 +34,7 @@ if (document.getElementById("levels")) {
       `Progress: ${currentLevel - 1}/12`;
 
     const levelsDiv = document.getElementById("levels");
+    levelsDiv.innerHTML = "";
 
     for (let i = 1; i <= 12; i++) {
       let locked = i > currentLevel;
@@ -42,33 +51,68 @@ if (document.getElementById("levels")) {
   }
 }
 
+// ==========================
 // START LEVEL
+// ==========================
 function startLevel(level) {
-  localStorage.setItem("level", level);
+  // ✅ FORCE STRING (VERY IMPORTANT)
+  localStorage.setItem("level", String(level));
   window.location.href = "level.html";
 }
 
+// ==========================
 // LEVEL PAGE
+// ==========================
 let currentQuestion = 0;
 let questions = [];
 
 if (document.getElementById("question-box")) {
-  const level = localStorage.getItem("level");
+  let level = localStorage.getItem("level");
+
+  // ✅ FIX: ensure level exists
+  if (!level) {
+    level = "1";
+    localStorage.setItem("level", "1");
+  }
+
+  // ✅ FORCE STRING MATCH
+  level = String(level);
 
   document.getElementById("level-title").innerText = "Level " + level;
 
   fetch("questions.json")
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error("questions.json not found");
+      return res.json();
+    })
     .then(data => {
+      console.log("LEVEL:", level);
+      console.log("QUESTIONS:", data[level]);
+
       questions = data[level];
+
+      // ✅ FIX: handle missing data
+      if (!questions || questions.length === 0) {
+        alert("No questions found for this level");
+        return;
+      }
+
       currentQuestion = 0;
       loadQuestion();
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Error loading questions.json");
     });
 }
 
+// ==========================
 // LOAD QUESTION
+// ==========================
 function loadQuestion() {
   const q = questions[currentQuestion];
+
+  if (!q) return;
 
   document.getElementById("question-box").innerHTML = `
     <h3>${q.question}</h3>
@@ -78,7 +122,9 @@ function loadQuestion() {
   `;
 }
 
+// ==========================
 // ANSWER
+// ==========================
 function answer(choice) {
   const q = questions[currentQuestion];
 
@@ -89,7 +135,9 @@ function answer(choice) {
   }
 }
 
-// NEXT
+// ==========================
+// NEXT QUESTION
+// ==========================
 function nextQuestion() {
   currentQuestion++;
 
@@ -100,7 +148,9 @@ function nextQuestion() {
   }
 }
 
+// ==========================
 // COMPLETE LEVEL
+// ==========================
 function completeLevel() {
   const username = localStorage.getItem("user");
   const level = parseInt(localStorage.getItem("level"));
@@ -115,6 +165,7 @@ function completeLevel() {
 
   alert("You earned " + rewards[level - 1]);
 
+  // Unlock next level
   if (level >= userData.level) {
     userData.level = Math.min(level + 1, 12);
     localStorage.setItem(username, JSON.stringify(userData));
@@ -123,7 +174,9 @@ function completeLevel() {
   window.location.href = "dashboard.html";
 }
 
+// ==========================
 // POPUP
+// ==========================
 function showPopup(msg) {
   document.getElementById("popup-text").innerText = msg;
   document.getElementById("popup").style.display = "flex";
