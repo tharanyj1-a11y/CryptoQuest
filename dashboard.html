@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CryptoQuest Dashboard</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Crypto Quest: Digital Citizen</h1>
+<div class="container">
+  <h1>CryptoQuest</h1>
+  <h2 id="progress"></h2>
 
-<!-- Progress -->
-<h2 id="progress">Progress: 0/12</h2>
+  <div id="levels"></div>
 
-<!-- Levels container -->
-<div id="levels"></div>
-
-<!-- Logout button -->
-<button onclick="logout()">Logout</button>
+  <button onclick="logout()">Logout</button>
+</div>
 
 <script src="app.js"></script>
 
 <script>
-  // Simple logout
-  function logout() {
-    localStorage.removeItem("user");
-    window.location.href = "index.html";
-  }
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "index.html";
+}
 </script>
 
 </body>
