@@ -16,25 +16,26 @@ export default function Quiz({ level, onFinish }) {
     setQuestions(shuffled);
   }, [level]);
 
-  // ⏱️ Timer
+  // ⏱️ Timer logic
   useEffect(() => {
-    if (!questions.length) return;
+    if (!questions.length || feedback) return;
 
     if (timeLeft === 0) {
       handleWrong("⏰ Time’s up!");
       return;
     }
 
-    const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    const timer = setTimeout(() => setTimeLeft((t) => t - 1), 1000);
     return () => clearTimeout(timer);
-  }, [timeLeft, questions]);
+  }, [timeLeft, questions, feedback]);
 
   if (!questions.length) return <p>Loading...</p>;
 
   const question = questions[index];
 
+  // ✅ ANSWER HANDLER
   function handleAnswer(option) {
-    if (feedback) return;
+    if (feedback) return; // prevent double click
 
     if (option === question.answer) {
       handleCorrect();
@@ -46,39 +47,44 @@ export default function Quiz({ level, onFinish }) {
   function handleCorrect() {
     const gainedXP = 10 + streak * 2;
 
+    setXp((prev) => prev + gainedXP);
+    setStreak((prev) => prev + 1);
+
     setFeedback({
       type: "correct",
       message: `✅ Correct! +${gainedXP} XP`
     });
-
-    setXp(xp + gainedXP);
-    setStreak(streak + 1);
   }
 
   function handleWrong(message) {
+    setLives((prev) => prev - 1);
+    setStreak(0);
+
     setFeedback({
       type: "wrong",
       message
     });
-
-    setLives(lives - 1);
-    setStreak(0);
   }
 
+  // ✅ NEXT BUTTON HANDLER (THIS IS THE FIX)
   function nextQuestion() {
-    if (lives <= 0) {
-      alert("Game Over!");
-      onFinish();
-      return;
-    }
-
     setFeedback(null);
     setTimeLeft(10);
 
+    // ❌ Game Over condition
+    if (lives - (feedback?.type === "wrong" ? 1 : 0) <= 0) {
+      alert("Game Over!");
+      onFinish(); // ✅ RETURN TO DASHBOARD
+      return;
+    }
+
+    // ✅ Move to next question
     if (index < questions.length - 1) {
-      setIndex(index + 1);
+      setIndex((prev) => prev + 1);
     } else {
-      onFinish();
+      // ✅ LEVEL COMPLETE (THIS WAS YOUR MISSING PIECE)
+      alert("Level Complete!");
+      onFinish(); // ✅ THIS IS CRITICAL
     }
   }
 
@@ -94,7 +100,7 @@ export default function Quiz({ level, onFinish }) {
         <p>⭐ XP: {xp}</p>
       </div>
 
-      {/* Progress Bar */}
+      {/* Progress bar */}
       <div className="progress-bar">
         <div
           className="progress-fill"
@@ -112,6 +118,7 @@ export default function Quiz({ level, onFinish }) {
         ))}
       </div>
 
+      {/* Feedback popup */}
       {feedback && (
         <div className={`popup ${feedback.type}`}>
           <p>{feedback.message}</p>
