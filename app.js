@@ -1,4 +1,11 @@
 // ==========================
+// GLOBAL VARIABLES
+// ==========================
+let currentQuestion = 0;
+let questions = [];
+let answered = false;
+
+// ==========================
 // LOGIN
 // ==========================
 function login() {
@@ -7,12 +14,10 @@ function login() {
 
   localStorage.setItem("user", username);
 
-  // Create user if new
   if (!localStorage.getItem(username)) {
     localStorage.setItem(username, JSON.stringify({ level: 1 }));
   }
 
-  // ✅ ALWAYS set a starting level
   localStorage.setItem("level", "1");
 
   window.location.href = "dashboard.html";
@@ -55,7 +60,6 @@ if (document.getElementById("levels")) {
 // START LEVEL
 // ==========================
 function startLevel(level) {
-  // ✅ FORCE STRING (VERY IMPORTANT)
   localStorage.setItem("level", String(level));
   window.location.href = "level.html";
 }
@@ -63,19 +67,14 @@ function startLevel(level) {
 // ==========================
 // LEVEL PAGE
 // ==========================
-let currentQuestion = 0;
-let questions = [];
-
 if (document.getElementById("question-box")) {
   let level = localStorage.getItem("level");
 
-  // ✅ FIX: ensure level exists
   if (!level) {
     level = "1";
     localStorage.setItem("level", "1");
   }
 
-  // ✅ FORCE STRING MATCH
   level = String(level);
 
   document.getElementById("level-title").innerText = "Level " + level;
@@ -86,12 +85,8 @@ if (document.getElementById("question-box")) {
       return res.json();
     })
     .then(data => {
-      console.log("LEVEL:", level);
-      console.log("QUESTIONS:", data[level]);
-
       questions = data[level];
 
-      // ✅ FIX: handle missing data
       if (!questions || questions.length === 0) {
         alert("No questions found for this level");
         return;
@@ -111,8 +106,9 @@ if (document.getElementById("question-box")) {
 // ==========================
 function loadQuestion() {
   const q = questions[currentQuestion];
-
   if (!q) return;
+
+  answered = false;
 
   document.getElementById("question-box").innerHTML = `
     <h3>${q.question}</h3>
@@ -120,12 +116,19 @@ function loadQuestion() {
       `<button class="option-btn" onclick="answer(${i})">${opt}</button>`
     ).join("")}
   `;
+
+  // Disable Next button until answered
+  document.getElementById("next-btn").disabled = true;
 }
 
 // ==========================
 // ANSWER
 // ==========================
 function answer(choice) {
+  if (answered) return;
+
+  answered = true;
+
   const q = questions[currentQuestion];
 
   if (choice === q.answer) {
@@ -133,12 +136,20 @@ function answer(choice) {
   } else {
     showPopup("❌ Wrong! " + q.explanation);
   }
+
+  // Enable Next button
+  document.getElementById("next-btn").disabled = false;
 }
 
 // ==========================
 // NEXT QUESTION
 // ==========================
 function nextQuestion() {
+  if (!answered) {
+    alert("Please answer the question first!");
+    return;
+  }
+
   currentQuestion++;
 
   if (currentQuestion >= 5) {
@@ -165,7 +176,6 @@ function completeLevel() {
 
   alert("You earned " + rewards[level - 1]);
 
-  // Unlock next level
   if (level >= userData.level) {
     userData.level = Math.min(level + 1, 12);
     localStorage.setItem(username, JSON.stringify(userData));
