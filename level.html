@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Level</title>
+  <title>CryptoQuest Level</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2 id="level-title"></h2>
+<h1 id="level-title">Level</h1>
+
+<!-- Question display -->
 <div id="question-box"></div>
+
+<!-- Next button -->
 <button onclick="nextQuestion()">Next</button>
 
+<!-- Back button -->
+<button onclick="goBack()">Back</button>
+
 <script src="app.js"></script>
+
+<script>
+  function goBack() {
+    window.location.href = "dashboard.html";
+  }
+</script>
+
 </body>
 </html>
