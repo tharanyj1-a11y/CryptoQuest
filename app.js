@@ -80,24 +80,20 @@ if (document.getElementById("question-box")) {
   document.getElementById("level-title").innerText = "Level " + level;
 
   fetch("questions.json")
-    .then(res => {
-      if (!res.ok) throw new Error("questions.json not found");
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
       questions = data[level];
 
       if (!questions || questions.length === 0) {
-        alert("No questions found for this level");
+        alert("No questions found");
         return;
       }
 
       currentQuestion = 0;
       loadQuestion();
     })
-    .catch(err => {
-      console.error(err);
-      alert("Error loading questions.json");
+    .catch(() => {
+      alert("Error loading questions");
     });
 }
 
@@ -108,6 +104,7 @@ function loadQuestion() {
   const q = questions[currentQuestion];
   if (!q) return;
 
+  // 🔥 RESET ANSWER STATE
   answered = false;
 
   document.getElementById("question-box").innerHTML = `
@@ -117,14 +114,16 @@ function loadQuestion() {
     ).join("")}
   `;
 
-  // Disable Next button until answered
-  document.getElementById("next-btn").disabled = true;
+  // 🔥 FORCE DISABLE NEXT BUTTON
+  const nextBtn = document.getElementById("next-btn");
+  if (nextBtn) nextBtn.disabled = true;
 }
 
 // ==========================
 // ANSWER
 // ==========================
 function answer(choice) {
+  // 🔥 PREVENT MULTIPLE ANSWERS
   if (answered) return;
 
   answered = true;
@@ -137,16 +136,18 @@ function answer(choice) {
     showPopup("❌ Wrong! " + q.explanation);
   }
 
-  // Enable Next button
-  document.getElementById("next-btn").disabled = false;
+  // 🔥 ENABLE NEXT BUTTON ONLY AFTER ANSWER
+  const nextBtn = document.getElementById("next-btn");
+  if (nextBtn) nextBtn.disabled = false;
 }
 
 // ==========================
-// NEXT QUESTION
+// NEXT QUESTION (HARD BLOCK)
 // ==========================
 function nextQuestion() {
+  // 🔥 ABSOLUTE BLOCK
   if (!answered) {
-    alert("Please answer the question first!");
+    alert("You must answer the question first!");
     return;
   }
 
