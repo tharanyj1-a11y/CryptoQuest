@@ -1,86 +1,150 @@
-// LOGIN
+// ==========================
+// LOGIN PAGE
+// ==========================
 function login() {
-  let username = document.getElementById("username").value;
-  if (!username) return alert("Enter username");
+  const usernameInput = document.getElementById("username");
+  if (!usernameInput) return;
+
+  const username = usernameInput.value.trim();
+  if (!username) {
+    alert("Enter username");
+    return;
+  }
 
   localStorage.setItem("user", username);
 
+  // Initialize user progress if new
   if (!localStorage.getItem(username)) {
     localStorage.setItem(username, JSON.stringify({ level: 1 }));
   }
 
-  window.location = "dashboard.html";
+  window.location.href = "dashboard.html";
 }
 
-// DASHBOARD
-if (window.location.pathname.includes("dashboard")) {
-  let username = localStorage.getItem("user");
-  let userData = JSON.parse(localStorage.getItem(username));
+// ==========================
+// DASHBOARD PAGE
+// ==========================
+if (document.getElementById("levels")) {
+  const username = localStorage.getItem("user");
 
-  let currentLevel = userData.level;
+  if (!username) {
+    alert("Please login first");
+    window.location.href = "index.html";
+  } else {
+    const userData = JSON.parse(localStorage.getItem(username));
+    const currentLevel = userData.level;
 
-  document.getElementById("progress").innerText =
-    `Progress: ${currentLevel - 1}/12`;
+    // Show progress
+    const progressText = document.getElementById("progress");
+    progressText.innerText = `Progress: ${currentLevel - 1}/12`;
 
-  let levelsDiv = document.getElementById("levels");
+    const levelsDiv = document.getElementById("levels");
+    levelsDiv.innerHTML = "";
 
-  for (let i = 1; i <= 12; i++) {
-    let locked = i > currentLevel;
+    // Create levels
+    for (let i = 1; i <= 12; i++) {
+      const locked = i > currentLevel;
 
-    let div = document.createElement("div");
-    div.className = "level";
+      const div = document.createElement("div");
+      div.className = "level";
 
-    div.innerHTML = `
-      <h3>Level ${i}</h3>
-      <button ${locked ? "disabled" : ""} onclick="startLevel(${i})">
-        ${locked ? "Locked 🔒" : "Start"}
-      </button>
-    `;
+      div.innerHTML = `
+        <h3>Level ${i}</h3>
+        <button ${locked ? "disabled" : ""} onclick="startLevel(${i})">
+          ${locked ? "Locked 🔒" : "Start"}
+        </button>
+      `;
 
-    levelsDiv.appendChild(div);
+      levelsDiv.appendChild(div);
+    }
   }
 }
 
+// ==========================
+// START LEVEL
+// ==========================
 function startLevel(level) {
   localStorage.setItem("level", level);
-  window.location = "level.html";
+  window.location.href = "level.html";
 }
 
+// ==========================
 // LEVEL PAGE
+// ==========================
 let currentQuestion = 0;
 let questions = [];
 
-if (window.location.pathname.includes("level")) {
-  let level = localStorage.getItem("level");
-  document.getElementById("level-title").innerText = "Level " + level;
+if (document.getElementById("question-box")) {
+  const level = localStorage.getItem("level");
 
-  fetch("questions.json")
-    .then(res => res.json())
-    .then(data => {
-      questions = data[level];
-      loadQuestion();
-    });
+  if (!level) {
+    alert("No level selected");
+    window.location.href = "dashboard.html";
+  } else {
+    document.getElementById("level-title").innerText = "Level " + level;
+
+    // ✅ LOAD QUESTIONS (CRITICAL LINE)
+    fetch("questions.json")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("questions.json not found");
+        }
+        return response.json();
+      })
+      .then(data => {
+        questions = data[level];
+
+        if (!questions || questions.length === 0) {
+          alert("No questions found for this level");
+          return;
+        }
+
+        currentQuestion = 0;
+        loadQuestion();
+      })
+      .catch(error => {
+        console.error(error);
+        alert("Error loading questions.json");
+      });
+  }
 }
 
+// ==========================
+// LOAD QUESTION
+// ==========================
 function loadQuestion() {
-  let q = questions[currentQuestion];
+  const q = questions[currentQuestion];
 
-  document.getElementById("question-box").innerHTML = `
+  const box = document.getElementById("question-box");
+  if (!box) return;
+
+  box.innerHTML = `
     <p>${q.question}</p>
-    ${q.options.map((opt, i) =>
-      `<button onclick="answer(${i})">${opt}</button>`
-    ).join("")}
+    ${q.options
+      .map(
+        (opt, i) =>
+          `<button onclick="answer(${i})">${opt}</button>`
+      )
+      .join("")}
   `;
 }
 
+// ==========================
+// ANSWER HANDLING
+// ==========================
 function answer(choice) {
-  if (choice === questions[currentQuestion].answer) {
+  const correct = questions[currentQuestion].answer;
+
+  if (choice === correct) {
     alert("Correct!");
   } else {
     alert("Wrong!");
   }
 }
 
+// ==========================
+// NEXT QUESTION
+// ==========================
 function nextQuestion() {
   currentQuestion++;
 
@@ -91,13 +155,16 @@ function nextQuestion() {
   }
 }
 
+// ==========================
+// COMPLETE LEVEL
+// ==========================
 function completeLevel() {
-  let username = localStorage.getItem("user");
-  let level = parseInt(localStorage.getItem("level"));
+  const username = localStorage.getItem("user");
+  const level = parseInt(localStorage.getItem("level"));
 
   let userData = JSON.parse(localStorage.getItem(username));
 
-  let rewards = [
+  const rewards = [
     "Bitcoin","Ethereum","Litecoin","Cardano",
     "Solana","Polkadot","Chainlink","Uniswap",
     "Monero","Tezos","Avalanche","Polygon"
@@ -105,10 +172,17 @@ function completeLevel() {
 
   alert("You earned " + rewards[level - 1]);
 
+  // Unlock next level
   if (level >= userData.level) {
     userData.level = level + 1;
+
+    // Prevent going above 12
+    if (userData.level > 12) {
+      userData.level = 12;
+    }
+
     localStorage.setItem(username, JSON.stringify(userData));
   }
 
-  window.location = "dashboard.html";
+  window.location.href = "dashboard.html";
 }
