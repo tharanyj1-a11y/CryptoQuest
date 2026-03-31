@@ -1,0 +1,35 @@
+{
+  "1":[
+    {"question":"What is cryptocurrency?","options":["Digital money","Paper money","Gold"],"answer":0},
+    {"question":"Bitcoin decentralized?","options":["Yes","No"],"answer":0},
+    {"question":"Runs on?","options":["Blockchain","Bank"],"answer":0},
+    {"question":"Physical?","options":["Yes","No"],"answer":1},
+    {"question":"Wallet stores?","options":["Coins","Emails"],"answer":0}
+  ],
+
+  "2":[
+    {"question":"Crypto fast?","options":["Yes","No"],"answer":0},
+    {"question":"Global?","options":["Yes","No"],"answer":0},
+    {"question":"Cheap fees?","options":["Yes","No"],"answer":0},
+    {"question":"Secure?","options":["Yes","No"],"answer":0},
+    {"question":"Transparent?","options":["Yes","No"],"answer":0}
+  ],
+
+  "3":[
+    {"question":"Volatile?","options":["Yes","No"],"answer":0},
+    {"question":"Scams exist?","options":["Yes","No"],"answer":0},
+    {"question":"Lose key?","options":["Lose money","Nothing"],"answer":0},
+    {"question":"Stable?","options":["Yes","No"],"answer":1},
+    {"question":"Risk free?","options":["Yes","No"],"answer":1}
+  ],
+
+  "4":[{"question":"Scam example?","options":["Fake giveaway","Real bank"],"answer":0},{"question":"Phishing?","options":["Yes","No"],"answer":0},{"question":"Safe link?","options":["Check URL","Click fast"],"answer":0},{"question":"Unknown DM?","options":["Ignore","Trust"],"answer":0},{"question":"Free crypto?","options":["Scam","Real"],"answer":0}],
+  "5":[{"question":"Use 2FA?","options":["Yes","No"],"answer":0},{"question":"Strong password?","options":["Yes","No"],"answer":0},{"question":"Share keys?","options":["No","Yes"],"answer":0},{"question":"Secure wallet?","options":["Yes","No"],"answer":0},{"question":"Backup?","options":["Yes","No"],"answer":0}],
+  "6":[{"question":"Trade wisely?","options":["Yes","No"],"answer":0},{"question":"Research?","options":["Yes","No"],"answer":0},{"question":"FOMO?","options":["Avoid","Follow"],"answer":0},{"question":"Risk manage?","options":["Yes","No"],"answer":0},{"question":"Diversify?","options":["Yes","No"],"answer":0}],
+  "7":[{"question":"NFT?","options":["Digital asset","Cash"],"answer":0},{"question":"Own art?","options":["Yes","No"],"answer":0},{"question":"Unique?","options":["Yes","No"],"answer":0},{"question":"Blockchain?","options":["Yes","No"],"answer":0},{"question":"Copy?","options":["No","Yes"],"answer":0}],
+  "8":[{"question":"DeFi?","options":["Decentralized","Centralized"],"answer":0},{"question":"Smart contract?","options":["Code","Paper"],"answer":0},{"question":"Banks needed?","options":["No","Yes"],"answer":0},{"question":"Lending?","options":["Yes","No"],"answer":0},{"question":"Risk?","options":["Yes","No"],"answer":0}],
+  "9":[{"question":"Privacy coin?","options":["Yes","No"],"answer":0},{"question":"Traceable?","options":["Sometimes","Never"],"answer":0},{"question":"Anonymous?","options":["Yes","No"],"answer":0},{"question":"Secure?","options":["Yes","No"],"answer":0},{"question":"Hidden tx?","options":["Yes","No"],"answer":0}],
+  "10":[{"question":"Eco impact?","options":["Yes","No"],"answer":0},{"question":"Energy use?","options":["High","Low"],"answer":0},{"question":"Green crypto?","options":["Yes","No"],"answer":0},{"question":"Mining cost?","options":["High","Low"],"answer":0},{"question":"Sustainable?","options":["Improving","No"],"answer":0}],
+  "11":[{"question":"Wallet type?","options":["Hot/Cold","Paper"],"answer":0},{"question":"Private key?","options":["Secret","Public"],"answer":0},{"question":"Lose key?","options":["Lose funds","Nothing"],"answer":0},{"question":"Backup?","options":["Yes","No"],"answer":0},{"question":"Safe storage?","options":["Yes","No"],"answer":0}],
+  "12":[{"question":"Legal?","options":["Varies","Same"],"answer":0},{"question":"Tax?","options":["Yes","No"],"answer":0},{"question":"Regulated?","options":["Somewhat","No"],"answer":0},{"question":"Government?","options":["Involved","Not"],"answer":0},{"question":"Compliance?","options":["Yes","No"],"answer":0}]
+}
