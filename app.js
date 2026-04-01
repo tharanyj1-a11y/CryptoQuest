@@ -6,6 +6,60 @@ let questions = [];
 let answered = false;
 
 // ==========================
+// STORY DATA
+// ==========================
+const stories = {
+  "1": {
+    title: "The Beginning of Crypto",
+    text: "You enter a digital world where money is no longer physical. Bitcoin appears — a decentralized currency powered by blockchain. No banks control it. You must learn how it works to survive this new system."
+  },
+  "2": {
+    title: "Global Power",
+    text: "Crypto allows instant global transactions. You realize people can send money across borders without banks. This power changes everything."
+  },
+  "3": {
+    title: "The Risks",
+    text: "The market is unpredictable. Prices swing wildly, and danger lurks everywhere. One wrong move could cost everything."
+  },
+  "4": {
+    title: "The Scammers",
+    text: "Fake giveaways and phishing attacks are everywhere. You must learn to recognize traps before it’s too late."
+  },
+  "5": {
+    title: "Security Mastery",
+    text: "You strengthen your defenses — strong passwords, 2FA, and backups. You are becoming secure."
+  },
+  "6": {
+    title: "Smart Investing",
+    text: "You learn patience. Research is key. Emotional decisions lead to loss."
+  },
+  "7": {
+    title: "NFT World",
+    text: "Digital ownership becomes real. NFTs represent unique items on the blockchain."
+  },
+  "8": {
+    title: "DeFi Universe",
+    text: "Banks disappear. Smart contracts take over financial systems."
+  },
+  "9": {
+    title: "Privacy Coins",
+    text: "Some coins hide transactions. Privacy is power — but controversial."
+  },
+  "10": {
+    title: "Energy Debate",
+    text: "Crypto mining consumes energy. The world debates its environmental impact."
+  },
+  "11": {
+    title: "Keys to Power",
+    text: "Your private key controls everything. Lose it, and everything is gone."
+  },
+  "12": {
+    title: "The Final Test",
+    text: "Regulations, taxes, and laws define the crypto world. You must master them all."
+  }
+};
+
+// ==========================
 // LOGIN
 // ==========================
 function login() {
@@ -65,36 +119,37 @@ function startLevel(level) {
 }
 
 // ==========================
-// LEVEL PAGE
+// LEVEL PAGE (STORY LOAD)
 // ==========================
-if (document.getElementById("question-box")) {
-  let level = localStorage.getItem("level");
-
-  if (!level) {
-    level = "1";
-    localStorage.setItem("level", "1");
-  }
-
-  level = String(level);
+if (document.getElementById("story-box")) {
+  let level = localStorage.getItem("level") || "1";
 
   document.getElementById("level-title").innerText = "Level " + level;
+
+  const story = stories[level];
+
+  document.getElementById("story-box").innerHTML = `
+    <h2>${story.title}</h2>
+    <p>${story.text}</p>
+  `;
 
   fetch("questions.json")
     .then(res => res.json())
     .then(data => {
       questions = data[level];
-
-      if (!questions || questions.length === 0) {
-        alert("No questions found");
-        return;
-      }
-
-      currentQuestion = 0;
-      loadQuestion();
-    })
-    .catch(() => {
-      alert("Error loading questions");
     });
+}
+
+// ==========================
+// START QUESTIONS
+// ==========================
+function startQuestions() {
+  document.getElementById("story-box").style.display = "none";
+  document.getElementById("start-btn").style.display = "none";
+  document.getElementById("question-section").style.display = "block";
+
+  currentQuestion = 0;
+  loadQuestion();
 }
 
 // ==========================
@@ -104,7 +159,6 @@ function loadQuestion() {
   const q = questions[currentQuestion];
   if (!q) return;
 
-  // 🔥 RESET ANSWER STATE
   answered = false;
 
   document.getElementById("question-box").innerHTML = `
@@ -114,16 +168,13 @@ function loadQuestion() {
     ).join("")}
   `;
 
-  // 🔥 FORCE DISABLE NEXT BUTTON
-  const nextBtn = document.getElementById("next-btn");
-  if (nextBtn) nextBtn.disabled = true;
+  document.getElementById("next-btn").disabled = true;
 }
 
 // ==========================
 // ANSWER
 // ==========================
 function answer(choice) {
-  // 🔥 PREVENT MULTIPLE ANSWERS
   if (answered) return;
 
   answered = true;
@@ -136,16 +187,13 @@ function answer(choice) {
     showPopup("❌ Wrong! " + q.explanation);
   }
 
-  // 🔥 ENABLE NEXT BUTTON ONLY AFTER ANSWER
-  const nextBtn = document.getElementById("next-btn");
-  if (nextBtn) nextBtn.disabled = false;
+  document.getElementById("next-btn").disabled = false;
 }
 
 // ==========================
-// NEXT QUESTION (HARD BLOCK)
+// NEXT QUESTION
 // ==========================
 function nextQuestion() {
-  // 🔥 ABSOLUTE BLOCK
   if (!answered) {
     alert("You must answer the question first!");
     return;
@@ -169,18 +217,12 @@ function completeLevel() {
 
   let userData = JSON.parse(localStorage.getItem(username));
 
-  const rewards = [
-    "Bitcoin","Ethereum","Litecoin","Cardano",
-    "Solana","Polkadot","Chainlink","Uniswap",
-    "Monero","Tezos","Avalanche","Polygon"
-  ];
-
-  alert("You earned " + rewards[level - 1]);
-
   if (level >= userData.level) {
     userData.level = Math.min(level + 1, 12);
     localStorage.setItem(username, JSON.stringify(userData));
   }
+
+  alert("Level Complete!");
 
   window.location.href = "dashboard.html";
 }
