@@ -2,8 +2,8 @@ body {
   font-family: Arial, sans-serif;
   background: #0f172a;
   color: #e2e8f0;
-  margin: 0;
   text-align: center;
+  margin: 0;
 }
 
 .container {
@@ -16,6 +16,8 @@ body {
   padding: 20px;
   border-radius: 12px;
   margin-top: 20px;
+  text-align: left;
+  line-height: 1.6;
 }
 
 button {
@@ -23,7 +25,7 @@ button {
   color: white;
   border: none;
   padding: 10px;
-  margin: 8px;
+  margin: 10px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -34,12 +36,7 @@ button:hover {
 
 button:disabled {
   background: gray;
-}
-
-#levels {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 10px;
+  cursor: not-allowed;
 }
 
 .option-btn {
