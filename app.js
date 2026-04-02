@@ -58,7 +58,7 @@ const stories = {
 
     You send money across the world in seconds — no bank, no waiting.
 
-    You realize:
+    <h2>You realize:</h2>
     <ul>
     <li>Crypto is global 🌍</li>
     <li>Transactions are fast ⚡</li>
@@ -79,7 +79,7 @@ const stories = {
 
     You see people losing money quickly.
 
-    You learn:
+    <h2>You learn:</h2>
     <ul>
     <li>Prices change fast</li>
     <li>Losing your private key = losing everything</li>
@@ -99,7 +99,7 @@ const stories = {
 
     The guide shakes their head: "Scam."
 
-    You learn:
+    <h2>You learn:</h2>
      <ul>
     <li>Fake giveaways are common</li>
     <li>Phishing steals your info</li>
@@ -114,7 +114,7 @@ const stories = {
     text:`
     You upgrade your defences.
 
-    You activate:
+    <h2>You activate:</h2>
     <ul>
     <li>Strong passwords 🔒</li>
     <li>2FA authentication</li>
@@ -123,9 +123,11 @@ const stories = {
     
     The guide says: "Security is everything."
 
-    You learn:
-    - Never share private keys
-    - Always protect your account
+    <h2>You learn:</h2>
+    <ul>
+    <li>Never share private keys</li>
+    <li>Always protect your account</li>
+    </ul>
     `
   },
   "6": {
@@ -137,7 +139,7 @@ const stories = {
 
     You stay calm.
 
-    You learn:
+    <h2>You learn:</h2>
     <ul>
     <li>Research before investing</li>
     <li>Avoid FOMO</li>
@@ -156,7 +158,7 @@ const stories = {
 
     "These are NFTs," the guide explains.
 
-    You learn:
+    <h2>You learn:</h2>
     <ul>
     <li>NFTs are unique digital assets</li>
     <li>They represent ownership</li>
@@ -175,7 +177,7 @@ const stories = {
 
     You lend and borrow without a middleman.
 
-    You learn:
+    <h2>You learn:</h2>
     <ul>
     <li>DeFi = decentralized finance</li>
     <li>Smart contracts run automatically</li>
@@ -192,7 +194,7 @@ const stories = {
 
     Transactions cannot be traced.
 
-    You learn:
+    <h2>You learn:</h2>
     <ul>
     <li>Privacy coins hide data</li>
     <li>Not all crypto is transparent</li>
@@ -209,7 +211,7 @@ const stories = {
 
     They consume energy.
 
-    You learn:
+    <h2>You learn:</h2>
     <ul>
     <li>Mining uses electricity</li>
     <li>Some crypto is energy-heavy</li>
@@ -225,7 +227,7 @@ const stories = {
 
     The guide says: "This is your private key."
 
-    You learn:
+    <h2>You learn:</h2>
     <ul>
     <li>Private keys control access</li>
     <li>If stolen → funds are gone</li>
@@ -242,7 +244,7 @@ const stories = {
 
     Governments appear.
 
-    You learn:
+    <h2>You learn:</h2>
     <ul>
     <li>Crypto laws vary</li>
     <li>Taxes apply</li>
