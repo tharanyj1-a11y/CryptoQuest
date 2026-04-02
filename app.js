@@ -100,10 +100,12 @@ const stories = {
     The guide shakes their head: "Scam."
 
     You learn:
-    - Fake giveaways are common
-    - Phishing steals your info
-    - Never trust random links
-
+     <ul>
+    <li>Fake giveaways are common</li>
+    <li>Phishing steals your info</li>
+    <li>Never trust random links</li>
+     </ul>
+     
     ⚠️ Trust nothing without proof.
     `
   },
@@ -113,10 +115,12 @@ const stories = {
     You upgrade your defences.
 
     You activate:
-    - Strong passwords 🔒
-    - 2FA authentication
-    - Wallet backups
-
+    <ul>
+    <li>Strong passwords 🔒</li>
+    <li>2FA authentication</li>
+    <li>Wallet backups</li>
+    </ul>
+    
     The guide says: "Security is everything."
 
     You learn:
@@ -134,9 +138,11 @@ const stories = {
     You stay calm.
 
     You learn:
-    - Research before investing
-    - Avoid FOMO
-    - Diversify your assets
+    <ul>
+    <li>Research before investing</li>
+    <li>Avoid FOMO</li>
+    <li>Diversify your assets</li>
+    </ul>
 
     Smart decisions = survival.
     `
@@ -151,9 +157,11 @@ const stories = {
     "These are NFTs," the guide explains.
 
     You learn:
-    - NFTs are unique digital assets
-    - They represent ownership
-    - Anyone can view them, but ownership is recorded
+    <ul>
+    <li>NFTs are unique digital assets</li>
+    <li>They represent ownership</li>
+    <li>Anyone can view them, but ownership is recorded</li>
+    </ul>
 
     Ownership matters.
     `
@@ -168,10 +176,12 @@ const stories = {
     You lend and borrow without a middleman.
 
     You learn:
-    - DeFi = decentralized finance
-    - Smart contracts run automatically
-    - No banks needed
-
+    <ul>
+    <li>DeFi = decentralized finance</li>
+    <li>Smart contracts run automatically</li>
+    <li>No banks needed</li>
+    </ul>
+    
     The system is evolving.
     `
   },
@@ -183,10 +193,12 @@ const stories = {
     Transactions cannot be traced.
 
     You learn:
-    - Privacy coins hide data
-    - Not all crypto is transparent
-    - Some are restricted
-
+    <ul>
+    <li>Privacy coins hide data</li>
+    <li>Not all crypto is transparent</li>
+    <li>Some are restricted</li>
+    </ul>
+    
     Privacy = power ⚡
     `
   },
@@ -198,9 +210,10 @@ const stories = {
     They consume energy.
 
     You learn:
-    - Mining uses electricity
-    - Some crypto is energy-heavy
-    - New eco-friendly solutions exist
+    <ul>
+    <li>Mining uses electricity</li>
+    <li>Some crypto is energy-heavy</li>
+    <li>New eco-friendly solutions exist</li>
 
     The future depends on sustainability.
     `
@@ -213,9 +226,11 @@ const stories = {
     The guide says: "This is your private key."
 
     You learn:
-    - Private keys control access
-    - If stolen → funds are gone
-    - Never share them
+    <ul>
+    <li>Private keys control access</li>
+    <li>If stolen → funds are gone</li>
+    <li>Never share them</li>
+    </ul>
 
     Protect it at all costs.
     `
@@ -228,9 +243,11 @@ const stories = {
     Governments appear.
 
     You learn:
-    - Crypto laws vary
-    - Taxes apply
-    - Regulation exists
+    <ul>
+    <li>Crypto laws vary</li>
+    <li>Taxes apply</li>
+    <li>Regulation exists</li>
+    </ul>
 
     "To master crypto, you must follow the rules."
 
