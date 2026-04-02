@@ -40,10 +40,12 @@ const stories = {
     "There are no banks here," the guide explains. "Everything is decentralized."
 
     You learn:
-    - Crypto is digital
-    - It runs on blockchain
-    - Wallets store private keys (NOT the coins)
-
+    <ul>
+    <li>Crypto is digital</li>
+    <li>It runs on blockchain</li>
+    <li>Wallets store private keys (NOT the coins)</li>
+    </ul>
+    
     Remember this — you will need it to survive the next challenge.
     `
   },
@@ -57,9 +59,11 @@ const stories = {
     You send money across the world in seconds — no bank, no waiting.
 
     You realize:
-    - Crypto is global 🌍
-    - Transactions are fast ⚡
-    - Fees are often lower than banks
+    <ul>
+    <li>Crypto is global 🌍</li>
+    <li>Transactions are fast ⚡</li>
+    <li>Fees are often lower than banks</li>
+    </ul>
 
     "This power connects the entire world," the guide warns.
     `
@@ -76,9 +80,11 @@ const stories = {
     You see people losing money quickly.
 
     You learn:
-    - Prices change fast
-    - Losing your private key = losing everything
-    - Crypto is risky ⚠️
+    <ul>
+    <li>Prices change fast</li>
+    <li>Losing your private key = losing everything</li>
+    <li>Crypto is risky ⚠️</li>
+    </ul>
 
     You must stay alert.
     `
