@@ -29,51 +29,207 @@ const rewards = [
 const stories = {
   "1": {
     title: "The Beginning of Crypto",
-    text: "You discover Bitcoin — a digital currency powered by blockchain. It is decentralized and uses wallets with private keys."
+    text: `
+    You wake up in a futuristic digital world 🌐.
+
+    A guide appears: "Welcome, explorer. This is the world of cryptocurrency."
+
+    You discover Bitcoin — a type of digital money. Unlike cash, it doesn't exist physically.
+    Instead, it exists online and is powered by something called a blockchain.
+
+    "There are no banks here," the guide explains. "Everything is decentralized."
+
+    You learn:
+    - Crypto is digital
+    - It runs on blockchain
+    - Wallets store private keys (NOT the coins)
+
+    Remember this — you will need it to survive the next challenge.
+    `
   },
   "2": {
     title: "Global Power",
-    text: "Crypto allows fast global transactions with low fees."
+    text: `
+    You travel across digital borders instantly.
+
+    "Crypto has no limits," your guide says.
+
+    You send money across the world in seconds — no bank, no waiting.
+
+    You realize:
+    - Crypto is global 🌍
+    - Transactions are fast ⚡
+    - Fees are often lower than banks
+
+    "This power connects the entire world," the guide warns.
+    `
   },
   "3": {
     title: "The Risks",
-    text: "Prices are volatile and losing keys means losing funds."
+    text: `
+    The environment becomes unstable.
+
+    Prices rise 📈... then crash 📉.
+
+    "Crypto is volatile," the guide says.
+
+    You see people losing money quickly.
+
+    You learn:
+    - Prices change fast
+    - Losing your private key = losing everything
+    - Crypto is risky ⚠️
+
+    You must stay alert.
+    `
   },
   "4": {
     title: "The Scammers",
-    text: "Fake giveaways and phishing attacks exist everywhere."
+    text:`
+    You enter a dark marketplace.
+
+    Messages appear:
+    "Send 1 Bitcoin, get 2 back!"
+
+    The guide shakes their head: "Scam."
+
+    You learn:
+    - Fake giveaways are common
+    - Phishing steals your info
+    - Never trust random links
+
+    ⚠️ Trust nothing without proof.
+    `
   },
   "5": {
     title: "Security Mastery",
-    text: "Strong passwords and 2FA protect your crypto."
+    text:`
+    You upgrade your defences.
+
+    You activate:
+    - Strong passwords 🔒
+    - 2FA authentication
+    - Wallet backups
+
+    The guide says: "Security is everything."
+
+    You learn:
+    - Never share private keys
+    - Always protect your account
+    `
   },
   "6": {
     title: "Smart Investing",
-    text: "Research and avoid emotional decisions."
+    text: `
+    You begin trading.
+
+    People panic-buy and lose everything.
+
+    You stay calm.
+
+    You learn:
+    - Research before investing
+    - Avoid FOMO
+    - Diversify your assets
+
+    Smart decisions = survival.
+    `
   },
   "7": {
     title: "NFT World",
-    text: "NFTs represent unique digital ownership."
+    text: `
+    You enter a gallery of digital art 🎨.
+
+    Each piece is unique.
+
+    "These are NFTs," the guide explains.
+
+    You learn:
+    - NFTs are unique digital assets
+    - They represent ownership
+    - Anyone can view them, but ownership is recorded
+
+    Ownership matters.
+    `
   },
   "8": {
     title: "DeFi Universe",
-    text: "Smart contracts replace banks."
+    text: `
+    Banks vanish.
+
+    Smart contracts take over.
+
+    You lend and borrow without a middleman.
+
+    You learn:
+    - DeFi = decentralized finance
+    - Smart contracts run automatically
+    - No banks needed
+
+    The system is evolving.
+    `
   },
   "9": {
     title: "Privacy Coins",
-    text: "Some coins hide transactions."
+    text: `
+    You enter a hidden network.
+
+    Transactions cannot be traced.
+
+    You learn:
+    - Privacy coins hide data
+    - Not all crypto is transparent
+    - Some are restricted
+
+    Privacy = power ⚡
+    `
   },
   "10": {
     title: "Energy Debate",
-    text: "Mining uses energy, but greener options exist."
+    text: `
+    You see massive mining machines ⚙️.
+
+    They consume energy.
+
+    You learn:
+    - Mining uses electricity
+    - Some crypto is energy-heavy
+    - New eco-friendly solutions exist
+
+    The future depends on sustainability.
+    `
   },
   "11": {
     title: "Keys to Power",
-    text: "Private keys control everything."
+    text: `
+    A vault appears.
+
+    The guide says: "This is your private key."
+
+    You learn:
+    - Private keys control access
+    - If stolen → funds are gone
+    - Never share them
+
+    Protect it at all costs.
+    `
   },
   "12": {
     title: "Final Test",
-    text: "Crypto laws and taxes must be followed."
+    text: `
+    You reach the final stage.
+
+    Governments appear.
+
+    You learn:
+    - Crypto laws vary
+    - Taxes apply
+    - Regulation exists
+
+    "To master crypto, you must follow the rules."
+
+    You are ready.
+    `
   }
 };
 
