@@ -29,7 +29,7 @@ const rewards = [
 const stories = {
   "1": {
     title: "The Beginning of Crypto",
-    text: `
+    text: <h1>`
     You wake up in a futuristic digital world 🌐.
 
     A guide appears: "Welcome, explorer. This is the world of cryptocurrency."
@@ -37,9 +37,9 @@ const stories = {
     You discover Bitcoin — a type of digital money. Unlike cash, it doesn't exist physically.
     Instead, it exists online and is powered by something called a blockchain.
 
-    "There are no banks here," the guide explains. "Everything is decentralized."
+    "There are no banks here," the guide explains. "Everything is decentralized." </h1>
 
-    <h1>You learn:</h1>
+    <h2>You learn:</h2>
     <ul>
     <li>Crypto is digital</li>
     <li>It runs on blockchain</li>
