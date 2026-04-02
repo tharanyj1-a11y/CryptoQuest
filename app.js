@@ -6,223 +6,74 @@ let questions = [];
 let answered = false;
 
 // ==========================
-// STORY DATA (LONG + INTERACTIVE)
+// CRYPTO REWARDS
+// ==========================
+const rewards = [
+  "Bitcoin 🪙",
+  "Ethereum ⚡",
+  "Litecoin 💡",
+  "Cardano 🔷",
+  "Solana 🚀",
+  "Polkadot 🎯",
+  "Chainlink 🔗",
+  "Uniswap 🌀",
+  "Monero 🕶️",
+  "Tezos 🔺",
+  "Avalanche ❄️",
+  "Polygon 🔷"
+];
+
+// ==========================
+// STORY DATA (SHORTENED HERE FOR SPACE)
 // ==========================
 const stories = {
   "1": {
     title: "The Beginning of Crypto",
-    text: `
-    You wake up in a futuristic digital world 🌐.
-
-    A guide appears: "Welcome, explorer. This is the world of cryptocurrency."
-
-    You discover Bitcoin — a type of digital money. Unlike cash, it doesn't exist physically.
-    Instead, it exists online and is powered by something called a blockchain.
-
-    "There are no banks here," the guide explains. "Everything is decentralized."
-
-    You learn:
-    - Crypto is digital
-    - It runs on blockchain
-    - Wallets store private keys (NOT the coins)
-
-    ⚠️ Remember this — you will need it to survive the next challenge.
-    `
+    text: "You discover Bitcoin — a digital currency powered by blockchain. It is decentralized and uses wallets with private keys."
   },
-
   "2": {
     title: "Global Power",
-    text: `
-    You travel across digital borders instantly.
-
-    "Crypto has no limits," your guide says.
-
-    You send money across the world in seconds — no bank, no waiting.
-
-    You realize:
-    - Crypto is global 🌍
-    - Transactions are fast ⚡
-    - Fees are often lower than banks
-
-    "This power connects the entire world," the guide warns.
-    `
+    text: "Crypto allows fast global transactions with low fees."
   },
-
   "3": {
     title: "The Risks",
-    text: `
-    The environment becomes unstable.
-
-    Prices rise 📈... then crash 📉.
-
-    "Crypto is volatile," the guide says.
-
-    You see people losing money quickly.
-
-    You learn:
-    - Prices change fast
-    - Losing your private key = losing everything
-    - Crypto is risky ⚠️
-
-    You must stay alert.
-    `
+    text: "Prices are volatile and losing keys means losing funds."
   },
-
   "4": {
     title: "The Scammers",
-    text: `
-    You enter a dark marketplace.
-
-    Messages appear:
-    "Send 1 Bitcoin, get 2 back!"
-
-    The guide shakes their head: "Scam."
-
-    You learn:
-    - Fake giveaways are common
-    - Phishing steals your info
-    - Never trust random links
-
-    ⚠️ Trust nothing without proof.
-    `
+    text: "Fake giveaways and phishing attacks exist everywhere."
   },
-
   "5": {
     title: "Security Mastery",
-    text: `
-    You upgrade your defenses.
-
-    You activate:
-    - Strong passwords 🔒
-    - 2FA authentication
-    - Wallet backups
-
-    The guide says: "Security is everything."
-
-    You learn:
-    - Never share private keys
-    - Always protect your account
-    `
+    text: "Strong passwords and 2FA protect your crypto."
   },
-
   "6": {
     title: "Smart Investing",
-    text: `
-    You begin trading.
-
-    People panic-buy and lose everything.
-
-    You stay calm.
-
-    You learn:
-    - Research before investing
-    - Avoid FOMO
-    - Diversify your assets
-
-    Smart decisions = survival.
-    `
+    text: "Research and avoid emotional decisions."
   },
-
   "7": {
     title: "NFT World",
-    text: `
-    You enter a gallery of digital art 🎨.
-
-    Each piece is unique.
-
-    "These are NFTs," the guide explains.
-
-    You learn:
-    - NFTs are unique digital assets
-    - They represent ownership
-    - Anyone can view them, but ownership is recorded
-
-    Ownership matters.
-    `
+    text: "NFTs represent unique digital ownership."
   },
-
   "8": {
     title: "DeFi Universe",
-    text: `
-    Banks vanish.
-
-    Smart contracts take over.
-
-    You lend and borrow without a middleman.
-
-    You learn:
-    - DeFi = decentralized finance
-    - Smart contracts run automatically
-    - No banks needed
-
-    The system is evolving.
-    `
+    text: "Smart contracts replace banks."
   },
-
   "9": {
     title: "Privacy Coins",
-    text: `
-    You enter a hidden network.
-
-    Transactions cannot be traced.
-
-    You learn:
-    - Privacy coins hide data
-    - Not all crypto is transparent
-    - Some are restricted
-
-    Privacy = power ⚡
-    `
+    text: "Some coins hide transactions."
   },
-
   "10": {
     title: "Energy Debate",
-    text: `
-    You see massive mining machines ⚙️.
-
-    They consume energy.
-
-    You learn:
-    - Mining uses electricity
-    - Some crypto is energy-heavy
-    - New eco-friendly solutions exist
-
-    The future depends on sustainability.
-    `
+    text: "Mining uses energy, but greener options exist."
   },
-
   "11": {
     title: "Keys to Power",
-    text: `
-    A vault appears.
-
-    The guide says: "This is your private key."
-
-    You learn:
-    - Private keys control access
-    - If stolen → funds are gone
-    - Never share them
-
-    Protect it at all costs.
-    `
+    text: "Private keys control everything."
   },
-
   "12": {
-    title: "The Final Test",
-    text: `
-    You reach the final stage.
-
-    Governments appear.
-
-    You learn:
-    - Crypto laws vary
-    - Taxes apply
-    - Regulation exists
-
-    "To master crypto, you must follow the rules."
-
-    You are ready.
-    `
+    title: "Final Test",
+    text: "Crypto laws and taxes must be followed."
   }
 };
 
@@ -244,7 +95,7 @@ function login() {
 }
 
 // ==========================
-// DASHBOARD
+// LOAD PAGE
 // ==========================
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -252,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("levels")) {
     const username = localStorage.getItem("user");
     const userData = JSON.parse(localStorage.getItem(username));
-
     const currentLevel = userData.level;
 
     document.getElementById("progress").innerText =
@@ -274,11 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ==========================
-  // STORY LOAD (FIXED)
-  // ==========================
+  // STORY
   if (document.getElementById("story-box")) {
-
     let level = localStorage.getItem("level") || "1";
 
     document.getElementById("level-title").innerText = "Level " + level;
@@ -338,30 +185,29 @@ function loadQuestion() {
 }
 
 // ==========================
-// ANSWER
+// ANSWER (MUST BE CORRECT)
 // ==========================
 function answer(choice) {
   if (answered) return;
 
-  answered = true;
-
   const q = questions[currentQuestion];
 
   if (choice === q.answer) {
+    answered = true;
     showPopup("✅ Correct!");
+    document.getElementById("next-btn").disabled = false;
   } else {
     showPopup("❌ " + q.explanation);
+    // ❌ DO NOT ENABLE NEXT BUTTON
   }
-
-  document.getElementById("next-btn").disabled = false;
 }
 
 // ==========================
-// NEXT
+// NEXT QUESTION
 // ==========================
 function nextQuestion() {
   if (!answered) {
-    alert("Answer first!");
+    alert("You must select the correct answer!");
     return;
   }
 
@@ -375,7 +221,7 @@ function nextQuestion() {
 }
 
 // ==========================
-// COMPLETE
+// COMPLETE LEVEL (REWARD)
 // ==========================
 function completeLevel() {
   const username = localStorage.getItem("user");
@@ -386,8 +232,12 @@ function completeLevel() {
   userData.level = Math.min(level + 1, 12);
   localStorage.setItem(username, JSON.stringify(userData));
 
-  alert("Level Complete!");
-  window.location.href = "dashboard.html";
+  // 🪙 REWARD POPUP
+  showPopup("🎉 You collected " + rewards[level - 1] + "!");
+
+  setTimeout(() => {
+    window.location.href = "dashboard.html";
+  }, 2000);
 }
 
 // ==========================
