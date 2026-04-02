@@ -6,56 +6,223 @@ let questions = [];
 let answered = false;
 
 // ==========================
-// STORY DATA
+// STORY DATA (LONG + INTERACTIVE)
 // ==========================
 const stories = {
   "1": {
     title: "The Beginning of Crypto",
-    text: "You enter a digital world where money is no longer physical. Bitcoin appears — a decentralized currency powered by blockchain. No banks control it. You must learn how it works to survive this new system."
+    text: `
+    You wake up in a futuristic digital world 🌐.
+
+    A guide appears: "Welcome, explorer. This is the world of cryptocurrency."
+
+    You discover Bitcoin — a type of digital money. Unlike cash, it doesn't exist physically.
+    Instead, it exists online and is powered by something called a blockchain.
+
+    "There are no banks here," the guide explains. "Everything is decentralized."
+
+    You learn:
+    - Crypto is digital
+    - It runs on blockchain
+    - Wallets store private keys (NOT the coins)
+
+    ⚠️ Remember this — you will need it to survive the next challenge.
+    `
   },
+
   "2": {
     title: "Global Power",
-    text: "Crypto allows instant global transactions. You realize people can send money across borders without banks. This power changes everything."
+    text: `
+    You travel across digital borders instantly.
+
+    "Crypto has no limits," your guide says.
+
+    You send money across the world in seconds — no bank, no waiting.
+
+    You realize:
+    - Crypto is global 🌍
+    - Transactions are fast ⚡
+    - Fees are often lower than banks
+
+    "This power connects the entire world," the guide warns.
+    `
   },
+
   "3": {
     title: "The Risks",
-    text: "The market is unpredictable. Prices swing wildly, and danger lurks everywhere. One wrong move could cost everything."
+    text: `
+    The environment becomes unstable.
+
+    Prices rise 📈... then crash 📉.
+
+    "Crypto is volatile," the guide says.
+
+    You see people losing money quickly.
+
+    You learn:
+    - Prices change fast
+    - Losing your private key = losing everything
+    - Crypto is risky ⚠️
+
+    You must stay alert.
+    `
   },
+
   "4": {
     title: "The Scammers",
-    text: "Fake giveaways and phishing attacks are everywhere. You must learn to recognize traps before it’s too late."
+    text: `
+    You enter a dark marketplace.
+
+    Messages appear:
+    "Send 1 Bitcoin, get 2 back!"
+
+    The guide shakes their head: "Scam."
+
+    You learn:
+    - Fake giveaways are common
+    - Phishing steals your info
+    - Never trust random links
+
+    ⚠️ Trust nothing without proof.
+    `
   },
+
   "5": {
     title: "Security Mastery",
-    text: "You strengthen your defenses — strong passwords, 2FA, and backups. You are becoming secure."
+    text: `
+    You upgrade your defenses.
+
+    You activate:
+    - Strong passwords 🔒
+    - 2FA authentication
+    - Wallet backups
+
+    The guide says: "Security is everything."
+
+    You learn:
+    - Never share private keys
+    - Always protect your account
+    `
   },
+
   "6": {
     title: "Smart Investing",
-    text: "You learn patience. Research is key. Emotional decisions lead to loss."
+    text: `
+    You begin trading.
+
+    People panic-buy and lose everything.
+
+    You stay calm.
+
+    You learn:
+    - Research before investing
+    - Avoid FOMO
+    - Diversify your assets
+
+    Smart decisions = survival.
+    `
   },
+
   "7": {
     title: "NFT World",
-    text: "Digital ownership becomes real. NFTs represent unique items on the blockchain."
+    text: `
+    You enter a gallery of digital art 🎨.
+
+    Each piece is unique.
+
+    "These are NFTs," the guide explains.
+
+    You learn:
+    - NFTs are unique digital assets
+    - They represent ownership
+    - Anyone can view them, but ownership is recorded
+
+    Ownership matters.
+    `
   },
+
   "8": {
     title: "DeFi Universe",
-    text: "Banks disappear. Smart contracts take over financial systems."
+    text: `
+    Banks vanish.
+
+    Smart contracts take over.
+
+    You lend and borrow without a middleman.
+
+    You learn:
+    - DeFi = decentralized finance
+    - Smart contracts run automatically
+    - No banks needed
+
+    The system is evolving.
+    `
   },
+
   "9": {
     title: "Privacy Coins",
-    text: "Some coins hide transactions. Privacy is power — but controversial."
+    text: `
+    You enter a hidden network.
+
+    Transactions cannot be traced.
+
+    You learn:
+    - Privacy coins hide data
+    - Not all crypto is transparent
+    - Some are restricted
+
+    Privacy = power ⚡
+    `
   },
+
   "10": {
     title: "Energy Debate",
-    text: "Crypto mining consumes energy. The world debates its environmental impact."
+    text: `
+    You see massive mining machines ⚙️.
+
+    They consume energy.
+
+    You learn:
+    - Mining uses electricity
+    - Some crypto is energy-heavy
+    - New eco-friendly solutions exist
+
+    The future depends on sustainability.
+    `
   },
+
   "11": {
     title: "Keys to Power",
-    text: "Your private key controls everything. Lose it, and everything is gone."
+    text: `
+    A vault appears.
+
+    The guide says: "This is your private key."
+
+    You learn:
+    - Private keys control access
+    - If stolen → funds are gone
+    - Never share them
+
+    Protect it at all costs.
+    `
   },
+
   "12": {
     title: "The Final Test",
-    text: "Regulations, taxes, and laws define the crypto world. You must master them all."
+    text: `
+    You reach the final stage.
+
+    Governments appear.
+
+    You learn:
+    - Crypto laws vary
+    - Taxes apply
+    - Regulation exists
+
+    "To master crypto, you must follow the rules."
+
+    You are ready.
+    `
   }
 };
 
@@ -73,27 +240,25 @@ function login() {
   }
 
   localStorage.setItem("level", "1");
-
   window.location.href = "dashboard.html";
 }
 
 // ==========================
 // DASHBOARD
 // ==========================
-if (document.getElementById("levels")) {
-  const username = localStorage.getItem("user");
+document.addEventListener("DOMContentLoaded", () => {
 
-  if (!username) {
-    window.location.href = "index.html";
-  } else {
+  // DASHBOARD
+  if (document.getElementById("levels")) {
+    const username = localStorage.getItem("user");
     const userData = JSON.parse(localStorage.getItem(username));
+
     const currentLevel = userData.level;
 
     document.getElementById("progress").innerText =
       `Progress: ${currentLevel - 1}/12`;
 
     const levelsDiv = document.getElementById("levels");
-    levelsDiv.innerHTML = "";
 
     for (let i = 1; i <= 12; i++) {
       let locked = i > currentLevel;
@@ -102,13 +267,37 @@ if (document.getElementById("levels")) {
       div.innerHTML = `
         <h3>Level ${i}</h3>
         <button ${locked ? "disabled" : ""} onclick="startLevel(${i})">
-          ${locked ? "Locked 🔒" : "Start"}
+          ${locked ? "🔒 Locked" : "Start"}
         </button>
       `;
       levelsDiv.appendChild(div);
     }
   }
-}
+
+  // ==========================
+  // STORY LOAD (FIXED)
+  // ==========================
+  if (document.getElementById("story-box")) {
+
+    let level = localStorage.getItem("level") || "1";
+
+    document.getElementById("level-title").innerText = "Level " + level;
+
+    const story = stories[level];
+
+    document.getElementById("story-box").innerHTML = `
+      <h2>${story.title}</h2>
+      <p>${story.text}</p>
+    `;
+
+    fetch("questions.json")
+      .then(res => res.json())
+      .then(data => {
+        questions = data[level];
+      });
+  }
+
+});
 
 // ==========================
 // START LEVEL
@@ -116,28 +305,6 @@ if (document.getElementById("levels")) {
 function startLevel(level) {
   localStorage.setItem("level", String(level));
   window.location.href = "level.html";
-}
-
-// ==========================
-// LEVEL PAGE (STORY LOAD)
-// ==========================
-if (document.getElementById("story-box")) {
-  let level = localStorage.getItem("level") || "1";
-
-  document.getElementById("level-title").innerText = "Level " + level;
-
-  const story = stories[level];
-
-  document.getElementById("story-box").innerHTML = `
-    <h2>${story.title}</h2>
-    <p>${story.text}</p>
-  `;
-
-  fetch("questions.json")
-    .then(res => res.json())
-    .then(data => {
-      questions = data[level];
-    });
 }
 
 // ==========================
@@ -157,14 +324,13 @@ function startQuestions() {
 // ==========================
 function loadQuestion() {
   const q = questions[currentQuestion];
-  if (!q) return;
 
   answered = false;
 
   document.getElementById("question-box").innerHTML = `
     <h3>${q.question}</h3>
     ${q.options.map((opt, i) =>
-      `<button class="option-btn" onclick="answer(${i})">${opt}</button>`
+      `<button onclick="answer(${i})">${opt}</button>`
     ).join("")}
   `;
 
@@ -184,18 +350,18 @@ function answer(choice) {
   if (choice === q.answer) {
     showPopup("✅ Correct!");
   } else {
-    showPopup("❌ Wrong! " + q.explanation);
+    showPopup("❌ " + q.explanation);
   }
 
   document.getElementById("next-btn").disabled = false;
 }
 
 // ==========================
-// NEXT QUESTION
+// NEXT
 // ==========================
 function nextQuestion() {
   if (!answered) {
-    alert("You must answer the question first!");
+    alert("Answer first!");
     return;
   }
 
@@ -209,7 +375,7 @@ function nextQuestion() {
 }
 
 // ==========================
-// COMPLETE LEVEL
+// COMPLETE
 // ==========================
 function completeLevel() {
   const username = localStorage.getItem("user");
@@ -217,13 +383,10 @@ function completeLevel() {
 
   let userData = JSON.parse(localStorage.getItem(username));
 
-  if (level >= userData.level) {
-    userData.level = Math.min(level + 1, 12);
-    localStorage.setItem(username, JSON.stringify(userData));
-  }
+  userData.level = Math.min(level + 1, 12);
+  localStorage.setItem(username, JSON.stringify(userData));
 
   alert("Level Complete!");
-
   window.location.href = "dashboard.html";
 }
 
