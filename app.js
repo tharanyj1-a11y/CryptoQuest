@@ -39,7 +39,7 @@ const stories = {
 
     "There are no banks here," the guide explains. "Everything is decentralized."
 
-    You learn:
+    <h1>You learn:</h1>
     <ul>
     <li>Crypto is digital</li>
     <li>It runs on blockchain</li>
